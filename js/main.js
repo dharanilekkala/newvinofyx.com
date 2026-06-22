@@ -4,6 +4,25 @@
 (function () {
   'use strict';
 
+  /* Mark JS as active — CSS uses this to safely hide-then-reveal content.
+     Without this class, all content is visible (safe no-JS fallback). */
+  document.body.classList.add('js-active');
+
+  /* ── Debug: navbar visibility watchdog ───────────────────── */
+  const _nav = document.getElementById('nav');
+  const _navDebug = () => {
+    const s = getComputedStyle(_nav);
+    if (s.display === 'none' || s.visibility === 'hidden' || parseFloat(s.opacity) < 0.1) {
+      console.warn('[VINOFYX] Navbar hidden detected!', {
+        display: s.display, visibility: s.visibility, opacity: s.opacity,
+        transform: s.transform, zIndex: s.zIndex, scrollY: window.scrollY
+      });
+    }
+  };
+  window.addEventListener('scroll', _navDebug, { passive: true });
+  console.log('[VINOFYX] Nav init — position:', getComputedStyle(_nav).position,
+    '| z-index:', getComputedStyle(_nav).zIndex);
+
   /* ════════════════════════════════════════════════════════════
      HERO PARTICLE CANVAS
   ════════════════════════════════════════════════════════════ */
@@ -442,7 +461,7 @@
      NAVIGATION
   ════════════════════════════════════════════════════════════ */
   const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 36);
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 90);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
@@ -451,25 +470,24 @@
   const navMenu   = document.getElementById('navMenu');
   if (hamburger && navMenu) {
     let open = false;
+    const closeMenu = () => { open = false; navMenu.style.display = 'none'; };
     hamburger.addEventListener('click', () => {
       open = !open;
       if (open) {
         Object.assign(navMenu.style, {
           display: 'flex', flexDirection: 'column',
-          position: 'fixed', top: '74px', left: '0', right: '0',
-          background: 'rgba(8,8,8,0.96)', backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)', padding: '24px 44px 32px',
-          borderBottom: '1px solid rgba(212,175,55,0.09)', gap: '6px', zIndex: '999',
+          position: 'fixed', top: '90px', left: '0', right: '0',
+          background: 'rgba(0,0,0,0.96)', backdropFilter: 'blur(28px)',
+          WebkitBackdropFilter: 'blur(28px)', padding: '24px 44px 32px',
+          borderBottom: '1px solid rgba(212,175,55,0.15)', gap: '6px', zIndex: '9998',
         });
-      } else { navMenu.style.display = 'none'; }
+      } else { closeMenu(); }
     });
-    navMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => { open = false; navMenu.style.display = 'none'; });
-    });
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   }
 
   /* ════════════════════════════════════════════════════════════
-     SMOOTH SCROLL
+     SMOOTH SCROLL  (100 px offset for fixed nav)
   ════════════════════════════════════════════════════════════ */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -478,10 +496,33 @@
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: 'smooth' });
+      const top = target.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     });
   });
+
+  /* ════════════════════════════════════════════════════════════
+     ACTIVE NAV LINK — highlight current section
+  ════════════════════════════════════════════════════════════ */
+  const navLinks = document.querySelectorAll('.nav-link');
+  const tracked  = ['about','solutions','ai-lab','cases','contact'];
+  const pageSections = tracked.map(id => document.getElementById(id)).filter(Boolean);
+
+  let _lastActiveId = '';
+  function updateActiveLink() {
+    const scrollMid = window.scrollY + 120;
+    let active = pageSections[0];
+    pageSections.forEach(sec => { if (sec.offsetTop <= scrollMid) active = sec; });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + active.id);
+    });
+    if (active.id !== _lastActiveId) {
+      _lastActiveId = active.id;
+      console.log('[VINOFYX] Active section →', active.id, '| scrollY:', Math.round(window.scrollY));
+    }
+  }
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
 
   /* ════════════════════════════════════════════════════════════
      SCROLL CUE FADE
@@ -512,5 +553,13 @@
   initHeroCanvas();
   initEcosystem();
   initGlobe();
+
+  /* Hero entrance — JS-driven so fill-mode:both can never hide content */
+  const heroSection = document.querySelector('.hero-section');
+  if (heroSection) {
+    requestAnimationFrame(() => {
+      setTimeout(() => heroSection.classList.add('hero-ready'), 80);
+    });
+  }
 
 })();
