@@ -73,7 +73,7 @@ export default function GlobalPresence() {
                 ))}
 
                 {/* Lat lines */}
-                {[-40, 0, 40].map((y, i) => (
+                {[-40, 0, 40].map((y) => (
                   <ellipse
                     key={y}
                     cx="100" cy={100 + y}

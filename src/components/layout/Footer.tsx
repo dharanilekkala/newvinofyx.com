@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Linkedin, Twitter, Instagram, Github, ArrowRight } from "lucide-react";
-import { FOOTER_LINKS, CONTACT_INFO } from "@/utils/constants";
+import { FOOTER_LINKS } from "@/utils/constants";
 
 const SOCIAL = [
   { Icon: Linkedin, href: "#", label: "LinkedIn" },
@@ -32,7 +32,7 @@ export default function Footer() {
               Global technology company delivering AI, software engineering, data innovation, and enterprise transformation across 13 verticals.
             </p>
             <p className="text-gold text-xs italic mb-6 font-light tracking-wide">
-              "Your Growth, Our Responsibility"
+              &ldquo;Your Growth, Our Responsibility&rdquo;
             </p>
             {/* Socials */}
             <div className="flex items-center gap-3">
