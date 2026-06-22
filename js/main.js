@@ -466,7 +466,12 @@
       } else { closeMenu(); }
     });
     // Close menu when any link inside is clicked
-    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    // Only close when hamburger menu is actually open (mobile).
+    // Without this guard, clicking a link on desktop sets navMenu.style.display='none'
+    // as inline style, overriding the CSS display:flex and hiding all nav links.
+    navMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => { if (open) closeMenu(); });
+    });
   }
 
   /* ════════════════════════════════════════════════════════════
