@@ -8,21 +8,6 @@
      Without this class, all content is visible (safe no-JS fallback). */
   document.body.classList.add('js-active');
 
-  /* ── Debug: navbar visibility watchdog ───────────────────── */
-  const _nav = document.getElementById('nav');
-  const _navDebug = () => {
-    const s = getComputedStyle(_nav);
-    if (s.display === 'none' || s.visibility === 'hidden' || parseFloat(s.opacity) < 0.1) {
-      console.warn('[VINOFYX] Navbar hidden detected!', {
-        display: s.display, visibility: s.visibility, opacity: s.opacity,
-        transform: s.transform, zIndex: s.zIndex, scrollY: window.scrollY
-      });
-    }
-  };
-  window.addEventListener('scroll', _navDebug, { passive: true });
-  console.log('[VINOFYX] Nav init — position:', getComputedStyle(_nav).position,
-    '| z-index:', getComputedStyle(_nav).zIndex);
-
   /* ════════════════════════════════════════════════════════════
      HERO PARTICLE CANVAS
   ════════════════════════════════════════════════════════════ */
@@ -461,11 +446,8 @@
      NAVIGATION
   ════════════════════════════════════════════════════════════ */
   const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 90);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
-  // Mobile hamburger
+  // Mobile hamburger — null-safe
   const hamburger = document.getElementById('hamburger');
   const navMenu   = document.getElementById('navMenu');
   if (hamburger && navMenu) {
@@ -479,22 +461,23 @@
           position: 'fixed', top: '90px', left: '0', right: '0',
           background: 'rgba(0,0,0,0.96)', backdropFilter: 'blur(28px)',
           WebkitBackdropFilter: 'blur(28px)', padding: '24px 44px 32px',
-          borderBottom: '1px solid rgba(212,175,55,0.15)', gap: '6px', zIndex: '9998',
+          borderBottom: '1px solid rgba(212,175,55,0.15)', gap: '6px', zIndex: '999998',
         });
       } else { closeMenu(); }
     });
+    // Close menu when any link inside is clicked
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   }
 
   /* ════════════════════════════════════════════════════════════
-     SMOOTH SCROLL  (100 px offset for fixed nav)
+     SMOOTH SCROLL — 120px offset clears 90px nav + breathing room
   ════════════════════════════════════════════════════════════ */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
       if (!href || href === '#') return;
       const target = document.querySelector(href);
-      if (!target) return;
+      if (!target) return;          // target missing — let browser handle it
       e.preventDefault();
       const top = target.getBoundingClientRect().top + window.scrollY - 120;
       window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
@@ -502,17 +485,34 @@
   });
 
   /* ════════════════════════════════════════════════════════════
-     ACTIVE NAV LINK — highlight current section
+     ACTIVE NAV LINK — null-safe section detection
   ════════════════════════════════════════════════════════════ */
   const navLinks = document.querySelectorAll('.nav-link');
-  const tracked  = ['about','solutions','ai-lab','cases','contact'];
-  const pageSections = tracked.map(id => document.getElementById(id)).filter(Boolean);
+  const TRACKED_IDS = ['about', 'solutions', 'ai-lab', 'cases', 'contact'];
+
+  // Build section list — .filter(Boolean) silently drops any missing IDs
+  const pageSections = TRACKED_IDS
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  // Warn in console if any expected section is absent
+  TRACKED_IDS.forEach(id => {
+    if (!document.getElementById(id)) {
+      console.warn('[VINOFYX] Navigation target missing from DOM: #' + id);
+    }
+  });
 
   let _lastActiveId = '';
   function updateActiveLink() {
+    if (!pageSections.length || !navLinks.length) return;
     const scrollMid = window.scrollY + 120;
-    let active = pageSections[0];
-    pageSections.forEach(sec => { if (sec.offsetTop <= scrollMid) active = sec; });
+    let active = null;
+    // Walk in DOM order; last section whose top <= scrollMid wins
+    for (const sec of pageSections) {
+      if (sec.offsetTop <= scrollMid) active = sec;
+    }
+    if (!active) active = pageSections[0]; // above all sections → highlight first
+    if (!active) return;                   // completely empty list guard
     navLinks.forEach(link => {
       link.classList.toggle('active', link.getAttribute('href') === '#' + active.id);
     });
@@ -521,8 +521,30 @@
       console.log('[VINOFYX] Active section →', active.id, '| scrollY:', Math.round(window.scrollY));
     }
   }
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
-  updateActiveLink();
+
+  /* Single RAF-throttled scroll handler — replaces three separate listeners.
+     Handles: scrolled-glass class, active nav, navbar watchdog. */
+  let _raf = null;
+  const onScroll = () => {
+    if (_raf) return;
+    _raf = requestAnimationFrame(() => {
+      _raf = null;
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 90);
+      updateActiveLink();
+      // Watchdog: alert if nav ever becomes invisible (should never fire)
+      if (nav) {
+        const cs = getComputedStyle(nav);
+        if (cs.display === 'none' || cs.visibility === 'hidden' || parseFloat(cs.opacity) < 0.1) {
+          console.warn('[VINOFYX] Navbar hidden!', {
+            display: cs.display, visibility: cs.visibility,
+            opacity: cs.opacity, zIndex: cs.zIndex, scrollY: window.scrollY
+          });
+        }
+      }
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // initialise state immediately on page load
 
   /* ════════════════════════════════════════════════════════════
      SCROLL CUE FADE
