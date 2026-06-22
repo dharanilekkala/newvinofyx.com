@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 92" role="img" aria-label="VINOFYX mark">
+  <defs>
+    <linearGradient id="g" x1="6" y1="6" x2="86" y2="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#F5E6A8"/>
+      <stop offset="42%"  stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8B6D0D"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="32%" cy="22%" r="58%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Left arm of V -->
+  <polygon points="6,6 22,6 48,84 32,84" fill="url(#g)"/>
+  <!-- Right arm + arrowhead (combined) -->
+  <polygon points="32,84 48,84 72,22 86,6 56,22" fill="url(#g)"/>
+  <!-- Metallic sheen overlay -->
+  <polygon points="6,6 22,6 48,84 32,84" fill="url(#shine)"/>
+  <polygon points="32,84 48,84 72,22 86,6 56,22" fill="url(#shine)"/>
+</svg>
