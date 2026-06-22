@@ -14,17 +14,19 @@ const SOCIAL = [
 export default function Footer() {
   return (
     <footer className="border-t border-gold/10 bg-dark-900">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Main footer content */}
         <div className="py-16 grid lg:grid-cols-5 gap-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
-              <Image src="/images/logo-mark.svg" alt="" width={40} height={40} aria-hidden />
-              <div className="flex flex-col leading-none">
-                <span className="font-black text-[15px] tracking-[0.11em] gold-shimmer">VINOFYX</span>
-                <span className="text-[7px] font-medium tracking-[0.22em] text-white/35 mt-[2px]">PRIVATE LIMITED</span>
-              </div>
+            <div className="mb-5">
+              <Image
+                src="/images/logo.png"
+                alt="VINOFYX PRIVATE LIMITED"
+                width={180}
+                height={70}
+                className="h-[50px] w-auto object-contain"
+              />
             </div>
             <p className="text-white/45 text-sm leading-relaxed mb-6 max-w-xs">
               Global technology company delivering AI, software engineering, data innovation, and enterprise transformation across 13 verticals.

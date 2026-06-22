@@ -40,8 +40,8 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" ref={ref} className="section-pad bg-dark-800">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section id="about" ref={ref} className="section-pad bg-dark-800 scroll-mt-[80px] md:scroll-mt-[100px]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <SectionTitle
           eyebrow="Our Foundation"
           title="Built to Transform. Designed to Last."

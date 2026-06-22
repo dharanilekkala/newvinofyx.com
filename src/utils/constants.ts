@@ -1,112 +1,48 @@
 export const NAV_ITEMS = [
-  { label: "Company", href: "#about" },
+  { label: "Home",      href: "#hero" },
+  { label: "Company",   href: "#about" },
   { label: "Solutions", href: "#solutions" },
-  { label: "AI Lab", href: "#ai-lab" },
-  { label: "Work", href: "#cases" },
-  { label: "Contact", href: "#contact" },
+  { label: "AI Lab",    href: "#ai-lab" },
+  { label: "Work",      href: "#cases" },
+  { label: "Contact",   href: "#contact" },
 ];
 
 export const HERO_STATS = [
   { value: "500+", label: "Projects" },
-  { value: "13", label: "Verticals" },
-  { value: "50+", label: "Clients" },
-  { value: "98%", label: "Satisfaction" },
+  { value: "13",   label: "Verticals" },
+  { value: "50+",  label: "Clients" },
+  { value: "98%",  label: "Satisfaction" },
 ];
 
 export const SOLUTIONS = [
-  {
-    id: "ai",
-    title: "AI Solutions",
-    description: "Custom AI agents, intelligent automation, ML models, and AI-powered business tools that transform operations.",
-    icon: "Brain",
-  },
-  {
-    id: "software",
-    title: "Software Development",
-    description: "Enterprise applications, SaaS platforms, APIs, and full-stack solutions built for scale and reliability.",
-    icon: "Code2",
-  },
-  {
-    id: "data",
-    title: "Data Engineering",
-    description: "Data pipelines, warehousing, analytics platforms, and business intelligence for data-driven decisions.",
-    icon: "Database",
-  },
-  {
-    id: "marketing",
-    title: "Digital Marketing",
-    description: "Performance marketing, SEO, content strategy, paid media, and growth engineering that delivers ROI.",
-    icon: "TrendingUp",
-  },
-  {
-    id: "consulting",
-    title: "Business Consulting",
-    description: "Strategic advisory, process optimization, digital transformation roadmaps, and execution support.",
-    icon: "Briefcase",
-  },
-  {
-    id: "institutional",
-    title: "Institutional Solutions",
-    description: "Tailored solutions for universities, government bodies, hospitals, and public sector organizations.",
-    icon: "Building2",
-  },
-  {
-    id: "mobile",
-    title: "Mobile Development",
-    description: "Cross-platform and native iOS/Android applications with enterprise-grade performance and UX.",
-    icon: "Smartphone",
-  },
-  {
-    id: "cloud",
-    title: "Cloud Infrastructure",
-    description: "Cloud architecture, DevOps, CI/CD pipelines, and infrastructure management at scale.",
-    icon: "Cloud",
-  },
-  {
-    id: "cybersecurity",
-    title: "Cybersecurity",
-    description: "Security audits, penetration testing, compliance frameworks, and enterprise security architecture.",
-    icon: "ShieldCheck",
-  },
-  {
-    id: "ecommerce",
-    title: "E-Commerce Solutions",
-    description: "End-to-end e-commerce platforms, marketplace development, and high-converting digital storefronts.",
-    icon: "ShoppingCart",
-  },
-  {
-    id: "erp",
-    title: "ERP & CRM Systems",
-    description: "Custom ERP, CRM, and enterprise management systems tailored to complex business workflows.",
-    icon: "Settings2",
-  },
-  {
-    id: "edtech",
-    title: "EdTech Solutions",
-    description: "E-learning platforms, LMS systems, virtual classrooms, and next-generation educational technology.",
-    icon: "GraduationCap",
-  },
-  {
-    id: "fintech",
-    title: "FinTech Solutions",
-    description: "Payment systems, financial analytics, trading platforms, and regulatory compliance technology.",
-    icon: "Landmark",
-  },
+  { id: "ai",            title: "AI Solutions",          description: "Custom AI agents, intelligent automation, ML models, and AI-powered business tools that transform operations.",                            icon: "Brain" },
+  { id: "software",      title: "Software Development",  description: "Enterprise applications, SaaS platforms, APIs, and full-stack solutions built for scale and reliability.",                                  icon: "Code2" },
+  { id: "data",          title: "Data Engineering",      description: "Data pipelines, warehousing, analytics platforms, and business intelligence for data-driven decisions.",                                    icon: "Database" },
+  { id: "marketing",     title: "Digital Marketing",     description: "Performance marketing, SEO, content strategy, paid media, and growth engineering that delivers ROI.",                                       icon: "TrendingUp" },
+  { id: "consulting",    title: "Business Consulting",   description: "Strategic advisory, process optimization, digital transformation roadmaps, and execution support.",                                          icon: "Briefcase" },
+  { id: "institutional", title: "Institutional Solutions",description: "Tailored solutions for universities, government bodies, hospitals, and public sector organizations.",                                       icon: "Building2" },
+  { id: "mobile",        title: "Mobile Development",    description: "Cross-platform and native iOS/Android applications with enterprise-grade performance and UX.",                                               icon: "Smartphone" },
+  { id: "cloud",         title: "Cloud Infrastructure",  description: "Cloud architecture, DevOps, CI/CD pipelines, and infrastructure management at scale.",                                                      icon: "Cloud" },
+  { id: "cybersecurity", title: "Cybersecurity",         description: "Security audits, penetration testing, compliance frameworks, and enterprise security architecture.",                                        icon: "ShieldCheck" },
+  { id: "ecommerce",     title: "E-Commerce Solutions",  description: "End-to-end e-commerce platforms, marketplace development, and high-converting digital storefronts.",                                        icon: "ShoppingCart" },
+  { id: "erp",           title: "ERP & CRM Systems",     description: "Custom ERP, CRM, and enterprise management systems tailored to complex business workflows.",                                                icon: "Settings2" },
+  { id: "edtech",        title: "EdTech Solutions",      description: "E-learning platforms, LMS systems, virtual classrooms, and next-generation educational technology.",                                        icon: "GraduationCap" },
+  { id: "fintech",       title: "FinTech Solutions",     description: "Payment systems, financial analytics, trading platforms, and regulatory compliance technology.",                                             icon: "Landmark" },
 ];
 
 export const INDUSTRIES = [
-  { name: "Healthcare", icon: "Heart" },
-  { name: "Finance & Banking", icon: "Landmark" },
-  { name: "Education", icon: "GraduationCap" },
-  { name: "Government", icon: "Building" },
+  { name: "Healthcare",          icon: "Heart" },
+  { name: "Finance & Banking",   icon: "Landmark" },
+  { name: "Education",           icon: "GraduationCap" },
+  { name: "Government",          icon: "Building" },
   { name: "Retail & E-Commerce", icon: "ShoppingBag" },
-  { name: "Manufacturing", icon: "Factory" },
-  { name: "Real Estate", icon: "Home" },
-  { name: "Logistics", icon: "Truck" },
-  { name: "Media & Entertainment", icon: "Film" },
-  { name: "Hospitality", icon: "Hotel" },
-  { name: "Agriculture", icon: "Leaf" },
-  { name: "Legal & Compliance", icon: "Scale" },
+  { name: "Manufacturing",       icon: "Factory" },
+  { name: "Real Estate",         icon: "Home" },
+  { name: "Logistics",           icon: "Truck" },
+  { name: "Media & Entertainment",icon: "Film" },
+  { name: "Hospitality",         icon: "Hotel" },
+  { name: "Agriculture",         icon: "Leaf" },
+  { name: "Legal & Compliance",  icon: "Scale" },
 ];
 
 export const AI_CAPABILITIES = [
@@ -172,9 +108,9 @@ export const CASE_STUDIES = [
 ];
 
 export const GLOBAL_STATS = [
-  { value: "3", label: "Continents" },
-  { value: "10+", label: "Countries" },
-  { value: "50+", label: "Enterprise Clients" },
+  { value: "3",    label: "Continents" },
+  { value: "10+",  label: "Countries" },
+  { value: "50+",  label: "Enterprise Clients" },
   { value: "500+", label: "Projects Delivered" },
 ];
 
@@ -187,21 +123,21 @@ export const CONTACT_INFO = {
 
 export const FOOTER_LINKS = {
   company: [
-    { label: "About Us", href: "#about" },
+    { label: "About Us",   href: "#about" },
     { label: "Leadership", href: "#about" },
-    { label: "Careers", href: "#contact" },
-    { label: "Press", href: "#contact" },
+    { label: "Careers",    href: "#contact" },
+    { label: "Press",      href: "#contact" },
   ],
   solutions: [
-    { label: "AI Solutions", href: "#solutions" },
-    { label: "Software Dev", href: "#solutions" },
-    { label: "Data Engineering", href: "#solutions" },
-    { label: "Digital Marketing", href: "#solutions" },
+    { label: "AI Solutions",    href: "#solutions" },
+    { label: "Software Dev",    href: "#solutions" },
+    { label: "Data Engineering",href: "#solutions" },
+    { label: "Digital Marketing",href: "#solutions" },
   ],
   industries: [
-    { label: "Healthcare", href: "#solutions" },
-    { label: "FinTech", href: "#solutions" },
-    { label: "Education", href: "#solutions" },
-    { label: "Government", href: "#solutions" },
+    { label: "Healthcare",  href: "#solutions" },
+    { label: "FinTech",     href: "#solutions" },
+    { label: "Education",   href: "#solutions" },
+    { label: "Government",  href: "#solutions" },
   ],
 };

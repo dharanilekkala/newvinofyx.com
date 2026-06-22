@@ -42,8 +42,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={ref} className="section-pad bg-dark">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section id="contact" ref={ref} className="section-pad bg-dark scroll-mt-[80px] md:scroll-mt-[100px]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <SectionTitle
           eyebrow="Get In Touch"
           title="Let's Build Something Extraordinary"

@@ -25,8 +25,8 @@ export default function CaseStudies() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="cases" ref={ref} className="section-pad bg-dark">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section id="cases" ref={ref} className="section-pad bg-dark scroll-mt-[80px] md:scroll-mt-[100px]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <SectionTitle
           eyebrow="Client Success Stories"
           title="Real Results. Real Impact."
