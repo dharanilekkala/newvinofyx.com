@@ -88,3 +88,56 @@ body {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* ── Glassmorphism ── */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-blue {
+  background: rgba(234, 244, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(0, 87, 255, 0.14);
+}
+
+/* ── Subtle tech grid background ── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(0, 87, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 87, 255, 0.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ── Gradient accent top border (activated on hover via group/card class) ── */
+.accent-card {
+  position: relative;
+  overflow: hidden;
+}
+.accent-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0057FF 0%, #00A3FF 50%, #0057FF 100%);
+  background-size: 200% auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 2px 2px 0 0;
+}
+.accent-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Blue glow on CTAs ── */
+.btn-glow {
+  box-shadow: 0 0 40px rgba(0, 87, 255, 0.28), 0 4px 16px rgba(0, 87, 255, 0.2);
+}
+.btn-glow:hover {
+  box-shadow: 0 0 56px rgba(0, 87, 255, 0.38), 0 6px 24px rgba(0, 87, 255, 0.25);
+}

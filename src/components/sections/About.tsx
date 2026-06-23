@@ -57,10 +57,10 @@ export default function About() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
-              className="group p-6 rounded-2xl border border-blue-100 bg-white shadow-sm hover:border-blue-300 hover:shadow-md transition-all duration-300"
+              className="accent-card group p-6 rounded-2xl border border-blue-100 bg-white shadow-sm hover:border-blue-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-                <Icon className="text-blue-600" size={20} />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center mb-4 group-hover:from-blue-100 group-hover:to-blue-200 transition-all duration-300 shadow-sm">
+                <Icon className="text-blue-600" size={22} />
               </div>
               <h3 className="text-slate-900 font-bold text-lg mb-3">{title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
@@ -82,9 +82,9 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.12 }}
-                  className="text-center"
+                  className="text-center group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(0,87,255,0.25)] relative z-10 animate-pulse-gold">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-white font-black text-xs flex items-center justify-center mx-auto mb-4 shadow-[0_0_24px_rgba(0,87,255,0.3)] relative z-10 group-hover:scale-110 transition-transform duration-300">
                     {i + 1}
                   </div>
                   <div className="gold-text font-black text-2xl mb-1">{year}</div>

@@ -70,8 +70,8 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-[99999] transition-all duration-300",
           scrolled
-            ? "bg-white/96 backdrop-blur-2xl border-b border-slate-200 shadow-[0_2px_20px_rgba(0,0,0,0.06)]"
-            : "bg-white/90 backdrop-blur-md border-b border-slate-100"
+            ? "bg-white/95 backdrop-blur-2xl border-b border-slate-200/80 shadow-[0_2px_24px_rgba(0,0,0,0.07)]"
+            : "bg-white/80 backdrop-blur-xl border-b border-white/40"
         )}
         role="navigation"
         aria-label="Main navigation"
@@ -84,16 +84,15 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); scrollTo("#hero"); }}
             aria-label="VINOFYX — Back to top"
           >
-            <span className="bg-slate-900 rounded-xl px-2 py-1 inline-flex">
-              <Image
-                src="/images/logo.png"
-                alt="VINOFYX PRIVATE LIMITED"
-                width={210}
-                height={82}
-                className="h-[38px] md:h-[46px] w-auto object-contain"
-                priority
-              />
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt="VINOFYX PRIVATE LIMITED"
+              width={210}
+              height={82}
+              className="h-[38px] md:h-[46px] w-auto object-contain"
+              style={{ filter: 'url(#remove-white)' }}
+              priority
+            />
           </a>
 
           {/* Desktop nav */}
@@ -171,15 +170,14 @@ export default function Navbar() {
             >
               {/* Drawer header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 flex-shrink-0">
-                <span className="bg-slate-900 rounded-xl px-2 py-1 inline-flex">
-                  <Image
-                    src="/images/logo.png"
-                    alt="VINOFYX PRIVATE LIMITED"
-                    width={150}
-                    height={59}
-                    className="h-[30px] w-auto object-contain"
-                  />
-                </span>
+                <Image
+                  src="/images/logo.png"
+                  alt="VINOFYX PRIVATE LIMITED"
+                  width={150}
+                  height={59}
+                  className="h-[30px] w-auto object-contain"
+                  style={{ filter: 'url(#remove-white)' }}
+                />
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"

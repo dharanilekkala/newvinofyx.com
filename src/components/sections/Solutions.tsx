@@ -43,10 +43,10 @@ export default function Solutions() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: 0.1 + i * 0.05 }}
-                className="group p-5 sm:p-6 rounded-2xl border border-blue-100 bg-white shadow-sm hover:border-blue-300 hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                className="accent-card group p-5 sm:p-6 rounded-2xl border border-blue-100 bg-white shadow-sm hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-                  <Icon size={20} className="text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center mb-4 group-hover:from-blue-100 group-hover:to-blue-200 transition-all duration-300 shadow-sm">
+                  <Icon size={22} className="text-blue-600" />
                 </div>
                 <h3 className="text-slate-900 font-bold text-sm sm:text-base mb-2 leading-tight">
                   {s.title}
@@ -65,7 +65,7 @@ export default function Solutions() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-blue-300 text-blue-600 font-semibold text-sm hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-blue-300 text-blue-600 font-semibold text-sm hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
           >
             Discuss Your Requirements →
           </a>

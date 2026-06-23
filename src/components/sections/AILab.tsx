@@ -2,17 +2,17 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Bot, MessageSquare, Eye, BarChart3, CheckCircle2, Zap } from "lucide-react";
+import { Bot, MessageSquare, Eye, BarChart3, CheckCircle2, Zap, ArrowRight } from "lucide-react";
 import SectionTitle from "@/components/common/SectionTitle";
 import { AI_CAPABILITIES } from "@/utils/constants";
 
 const CAP_ICONS = [Bot, MessageSquare, Eye, BarChart3];
 
 const LAB_STATS = [
-  { value: "100+",   label: "AI Models Deployed" },
-  { value: "10M+",   label: "Daily Inferences" },
-  { value: "< 100ms",label: "Avg Response Time" },
-  { value: "99.9%",  label: "Uptime SLA" },
+  { value: "100+",    label: "AI Models Deployed" },
+  { value: "10M+",    label: "Daily Inferences" },
+  { value: "< 100ms", label: "Avg Response Time" },
+  { value: "99.9%",   label: "Uptime SLA" },
 ];
 
 export default function AILab() {
@@ -29,15 +29,18 @@ export default function AILab() {
           inView={inView}
         />
 
-        {/* Lab Stats */}
+        {/* Lab Stats — glassmorphic */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 p-8 rounded-2xl border border-blue-200 bg-white shadow-md"
+          className="glass-blue rounded-2xl px-4 sm:px-8 py-7 flex flex-wrap sm:flex-nowrap items-center justify-around gap-4 mb-20"
         >
-          {LAB_STATS.map(({ value, label }) => (
-            <div key={label} className="text-center">
+          {LAB_STATS.map(({ value, label }, i) => (
+            <div
+              key={label}
+              className={`text-center flex-1 px-2 ${i < LAB_STATS.length - 1 ? "border-r border-blue-200/60" : ""}`}
+            >
               <div className="text-2xl md:text-3xl font-black gold-text mb-1">{value}</div>
               <div className="text-slate-400 text-xs tracking-wide">{label}</div>
             </div>
@@ -54,10 +57,10 @@ export default function AILab() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.25 + i * 0.12 }}
-                className="group p-7 rounded-2xl border border-blue-100 bg-white shadow-sm hover:border-blue-300 hover:shadow-md transition-all duration-300"
+                className="accent-card group p-7 rounded-2xl border border-blue-100 bg-white shadow-sm hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-start gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
+                  <div className="w-13 h-13 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center flex-shrink-0 group-hover:from-blue-100 group-hover:to-blue-200 transition-all duration-300 shadow-sm">
                     <Icon size={22} className="text-blue-600" />
                   </div>
                   <div>
@@ -69,7 +72,7 @@ export default function AILab() {
                   {cap.features.map((f) => (
                     <span
                       key={f}
-                      className="flex items-center gap-1.5 text-xs text-blue-600 bg-blue-50 px-3 py-1 rounded-full"
+                      className="flex items-center gap-1.5 text-xs text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100"
                     >
                       <CheckCircle2 size={10} />
                       {f}
@@ -81,26 +84,34 @@ export default function AILab() {
           })}
         </div>
 
-        {/* CTA Banner */}
+        {/* Premium CTA Banner */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="mt-14 p-8 rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 text-center"
+          className="mt-14 p-8 sm:p-12 rounded-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-center shadow-[0_20px_60px_rgba(0,87,255,0.3)] relative overflow-hidden"
         >
-          <Zap className="text-blue-600 mx-auto mb-3" size={28} />
-          <h3 className="text-slate-900 font-bold text-xl md:text-2xl mb-3">
-            Ready to Deploy AI in Your Enterprise?
-          </h3>
-          <p className="text-slate-500 text-sm mb-6 max-w-lg mx-auto">
-            Our AI Lab team works with you from proof-of-concept to full-scale production deployment.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(0,87,255,0.2)]"
-          >
-            Start Your AI Journey →
-          </a>
+          {/* Background shimmer orb */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" aria-hidden />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none" aria-hidden />
+
+          <div className="relative z-10">
+            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4 backdrop-blur-sm border border-white/20">
+              <Zap className="text-white" size={28} />
+            </div>
+            <h3 className="text-white font-bold text-2xl md:text-3xl mb-3">
+              Ready to Deploy AI in Your Enterprise?
+            </h3>
+            <p className="text-blue-100 text-sm md:text-base mb-7 max-w-lg mx-auto leading-relaxed">
+              Our AI Lab team works with you from proof-of-concept to full-scale production deployment — with measurable ROI at every step.
+            </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-blue-700 font-bold text-sm hover:bg-blue-50 transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+            >
+              Start Your AI Journey <ArrowRight size={16} aria-hidden />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

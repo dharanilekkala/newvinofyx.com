@@ -13,22 +13,54 @@ const SOCIAL = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50">
+    <footer className="border-t border-slate-200 bg-white">
+      {/* Premium CTA strip */}
+      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-2xl" />
+        </div>
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-14 sm:py-16 text-center">
+          <p className="text-blue-200 text-xs font-semibold tracking-[0.28em] uppercase mb-3">
+            Ready to Transform?
+          </p>
+          <h2 className="text-white font-serif font-bold text-3xl md:text-4xl mb-4 leading-tight">
+            Let&apos;s Build Your Future Together
+          </h2>
+          <p className="text-blue-100 text-sm md:text-base mb-8 max-w-xl mx-auto leading-relaxed">
+            From AI strategy to full-scale deployment — VINOFYX delivers end-to-end enterprise technology solutions that drive measurable growth.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="#contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-blue-700 font-bold text-sm hover:bg-blue-50 transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+            >
+              Get a Free Consultation <ArrowRight size={16} aria-hidden />
+            </a>
+            <a
+              href="#solutions"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-all duration-200"
+            >
+              View Our Solutions
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Main footer content */}
         <div className="py-16 grid lg:grid-cols-5 gap-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
             <div className="mb-5">
-              <span className="bg-slate-900 rounded-xl px-2 py-1 inline-flex">
-                <Image
-                  src="/images/logo.png"
-                  alt="VINOFYX PRIVATE LIMITED"
-                  width={180}
-                  height={70}
-                  className="h-[40px] w-auto object-contain"
-                />
-              </span>
+              <Image
+                src="/images/logo.png"
+                alt="VINOFYX PRIVATE LIMITED"
+                width={180}
+                height={70}
+                className="h-[40px] w-auto object-contain"
+                style={{ filter: 'url(#remove-white)' }}
+              />
             </div>
             <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-xs">
               Global technology company delivering AI, software engineering, data innovation, and enterprise transformation across every industry.
@@ -36,7 +68,6 @@ export default function Footer() {
             <p className="text-blue-600 text-xs italic mb-6 font-light tracking-wide">
               &ldquo;Your Growth, Our Responsibility&rdquo;
             </p>
-            {/* Socials */}
             <div className="flex items-center gap-3">
               {SOCIAL.map(({ Icon, href, label }) => (
                 <a
@@ -62,10 +93,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map(({ label, href }) => (
                   <li key={label}>
-                    <a
-                      href={href}
-                      className="text-slate-500 text-sm hover:text-blue-600 transition-colors"
-                    >
+                    <a href={href} className="text-slate-500 text-sm hover:text-blue-600 transition-colors">
                       {label}
                     </a>
                   </li>
