@@ -116,8 +116,8 @@ export const GLOBAL_STATS = [
 
 export const CONTACT_INFO = {
   email: "info@vinofyx.com",
-  phone: "+91 XXXXX XXXXX",
-  whatsapp: "https://wa.me/91XXXXXXXXXX",
+  phone: "+91 93919 34534",
+  whatsapp: "https://wa.me/919391934534",
   address: "VINOFYX PRIVATE LIMITED, India",
 };
 
