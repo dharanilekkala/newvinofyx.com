@@ -23,12 +23,12 @@ export default function Button({
   disabled,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 font-semibold tracking-wide rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 disabled:opacity-50 disabled:pointer-events-none";
+    "inline-flex items-center justify-center gap-2 font-semibold tracking-wide rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 disabled:opacity-50 disabled:pointer-events-none";
 
   const variants = {
-    primary: "bg-gold text-black hover:bg-gold-light shadow-gold hover:shadow-gold-md",
-    outline: "border border-gold/40 text-gold hover:bg-gold/8 hover:border-gold/70",
-    ghost: "text-white/70 hover:text-white hover:bg-white/5",
+    primary: "bg-blue-600 text-white hover:bg-blue-700 shadow-[0_0_30px_rgba(0,87,255,0.18)] hover:shadow-[0_0_60px_rgba(0,87,255,0.25)]",
+    outline: "border border-blue-400 text-blue-600 hover:bg-blue-50 hover:border-blue-600",
+    ghost:   "text-blue-600/70 hover:text-blue-600 hover:bg-blue-50",
   };
 
   const sizes = {
@@ -40,11 +40,7 @@ export default function Button({
   const classes = cn(base, variants[variant], sizes[size], className);
 
   if (href) {
-    return (
-      <a href={href} className={classes}>
-        {children}
-      </a>
-    );
+    return <a href={href} className={classes}>{children}</a>;
   }
 
   return (
