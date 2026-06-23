@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "VINOFYX PRIVATE LIMITED | Global AI & Digital Transformation",
   description:
-    "VINOFYX PRIVATE LIMITED — Global technology company delivering AI, software engineering, data analytics, digital marketing and enterprise business solutions across 13 verticals.",
+    "VINOFYX PRIVATE LIMITED — Global technology company delivering AI, software engineering, data analytics, digital marketing, and enterprise transformation across every industry.",
   keywords: [
     "AI solutions",
     "digital transformation",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "VINOFYX PRIVATE LIMITED | Global AI & Digital Transformation",
     description:
-      "Pioneering AI-powered enterprise transformation across 13 business verticals.",
+      "Empowering organizations worldwide through AI, software, data engineering, digital transformation, consulting, and innovation.",
     type: "website",
     siteName: "VINOFYX PRIVATE LIMITED",
   },

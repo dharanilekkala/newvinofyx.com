@@ -32,14 +32,14 @@ export default function Hero() {
     const resize = () => {
       W = canvas.width  = window.innerWidth;
       H = canvas.height = window.innerHeight;
-      const count = Math.min(80, Math.floor((W * H) / 16000));
+      const count = Math.min(70, Math.floor((W * H) / 18000));
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        size: Math.random() * 1.4 + 0.3,
-        alpha: Math.random() * 0.45 + 0.08,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: (Math.random() - 0.5) * 0.28,
+        size: Math.random() * 1.2 + 0.3,
+        alpha: Math.random() * 0.3 + 0.06,
       }));
     };
 
@@ -55,15 +55,15 @@ export default function Hero() {
         if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(212,175,55,${p.alpha})`;
+        ctx.fillStyle = `rgba(0,87,255,${p.alpha})`;
         ctx.fill();
         for (let j = i + 1; j < particles.length; j++) {
           const q = particles[j];
           const dx = p.x - q.x, dy = p.y - q.y;
           const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < 110) {
+          if (d < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(212,175,55,${0.055 * (1 - d / 110)})`;
+            ctx.strokeStyle = `rgba(0,87,255,${0.06 * (1 - d / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
@@ -84,22 +84,24 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
       aria-label="VINOFYX — Home"
     >
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden />
 
-      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-gold/5 rounded-full blur-[140px] pointer-events-none" aria-hidden />
-      <div className="absolute bottom-1/3 right-1/4 w-[350px] h-[350px] bg-gold/6 rounded-full blur-[120px] pointer-events-none" aria-hidden />
+      {/* Soft gradient orbs */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-100/60 rounded-full blur-[160px] pointer-events-none" aria-hidden />
+      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-blue-50/80 rounded-full blur-[130px] pointer-events-none" aria-hidden />
+      <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-sky-100/40 rounded-full blur-[120px] pointer-events-none" aria-hidden />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 text-center pt-[72px] md:pt-[90px]">
         {/* Badge */}
         <motion.div
           variants={fadeUp} initial="initial" animate="animate"
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2 mb-6 md:mb-8 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 text-gold text-xs sm:text-sm font-medium tracking-wide"
+          className="inline-flex items-center gap-2 mb-6 md:mb-8 px-4 py-2 rounded-full border border-blue-200 bg-blue-50 text-blue-600 text-xs sm:text-sm font-medium tracking-wide"
         >
-          <span className="w-2 h-2 rounded-full bg-gold animate-pulse" aria-hidden />
+          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" aria-hidden />
           Pioneering AI-Powered Enterprise Transformation
         </motion.div>
 
@@ -109,8 +111,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="font-serif text-[clamp(2rem,6vw,5.25rem)] font-bold leading-[1.06] tracking-tight mb-5 md:mb-8"
         >
-          <span className="block text-white">The Future of Business</span>
-          <span className="block text-white">
+          <span className="block text-slate-900">The Future of Business</span>
+          <span className="block text-slate-900">
             Runs on <span className="gold-shimmer">Intelligence.</span>
           </span>
         </motion.h1>
@@ -119,11 +121,11 @@ export default function Hero() {
         <motion.p
           variants={fadeUp} initial="initial" animate="animate"
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-white/55 leading-relaxed mb-8 md:mb-12"
+          className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed mb-8 md:mb-12"
         >
-          VINOFYX PRIVATE LIMITED is a global technology powerhouse delivering AI,
-          software engineering, data innovation, and enterprise transformation
-          across 13 verticals — trusted by leaders who build the future.
+          Empowering organizations worldwide through AI, software, data engineering,
+          digital transformation, consulting, and innovation — trusted by leaders
+          who build the future.
         </motion.p>
 
         {/* CTAs */}
@@ -135,14 +137,14 @@ export default function Hero() {
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); scrollSection("contact"); }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gold text-black font-bold text-sm sm:text-base tracking-wide hover:bg-[#F5E6A8] transition-all duration-200 shadow-[0_0_30px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-blue-600 text-white font-bold text-sm sm:text-base tracking-wide hover:bg-blue-700 transition-all duration-200 shadow-[0_0_30px_rgba(0,87,255,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
           >
             Schedule a Consultation <ArrowRight size={18} aria-hidden />
           </a>
           <a
             href="#solutions"
             onClick={(e) => { e.preventDefault(); scrollSection("solutions"); }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-gold/35 text-gold font-semibold text-sm sm:text-base tracking-wide hover:bg-gold/6 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-blue-300 text-blue-600 font-semibold text-sm sm:text-base tracking-wide hover:bg-blue-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
           >
             Explore Solutions
           </a>
@@ -159,7 +161,7 @@ export default function Hero() {
               <div className="text-2xl sm:text-3xl md:text-4xl font-black gold-text mb-1 leading-none">
                 {stat.value}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-white/38 tracking-[0.18em] uppercase">
+              <div className="text-[10px] sm:text-[11px] text-slate-400 tracking-[0.18em] uppercase">
                 {stat.label}
               </div>
             </div>
@@ -174,7 +176,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
         aria-hidden
       >
-        <ChevronDown className="text-gold/40 animate-bounce" size={20} />
+        <ChevronDown className="text-blue-300 animate-bounce" size={20} />
       </motion.div>
     </section>
   );

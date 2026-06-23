@@ -9,10 +9,10 @@ import { AI_CAPABILITIES } from "@/utils/constants";
 const CAP_ICONS = [Bot, MessageSquare, Eye, BarChart3];
 
 const LAB_STATS = [
-  { value: "100+", label: "AI Models Deployed" },
-  { value: "10M+", label: "Daily Inferences" },
-  { value: "< 100ms", label: "Avg Response Time" },
-  { value: "99.9%", label: "Uptime SLA" },
+  { value: "100+",   label: "AI Models Deployed" },
+  { value: "10M+",   label: "Daily Inferences" },
+  { value: "< 100ms",label: "Avg Response Time" },
+  { value: "99.9%",  label: "Uptime SLA" },
 ];
 
 export default function AILab() {
@@ -20,7 +20,7 @@ export default function AILab() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="ai-lab" ref={ref} className="section-pad bg-dark-800 overflow-hidden scroll-mt-[80px] md:scroll-mt-[100px]">
+    <section id="ai-lab" ref={ref} className="section-pad bg-slate-50 overflow-hidden scroll-mt-[80px] md:scroll-mt-[100px]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <SectionTitle
           eyebrow="VINOFYX AI Lab"
@@ -34,12 +34,12 @@ export default function AILab() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 p-8 rounded-2xl border border-gold/15 bg-dark-700/40"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 p-8 rounded-2xl border border-blue-200 bg-white shadow-md"
         >
           {LAB_STATS.map(({ value, label }) => (
             <div key={label} className="text-center">
               <div className="text-2xl md:text-3xl font-black gold-text mb-1">{value}</div>
-              <div className="text-white/45 text-xs tracking-wide">{label}</div>
+              <div className="text-slate-400 text-xs tracking-wide">{label}</div>
             </div>
           ))}
         </motion.div>
@@ -54,22 +54,22 @@ export default function AILab() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.25 + i * 0.12 }}
-                className="group p-7 rounded-2xl border border-gold/10 bg-dark-700/50 hover:border-gold/28 hover:bg-dark-700 transition-all duration-300"
+                className="group p-7 rounded-2xl border border-blue-100 bg-white shadow-sm hover:border-blue-300 hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-start gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
-                    <Icon size={22} className="text-gold" />
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
+                    <Icon size={22} className="text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-lg leading-tight mb-1">{cap.title}</h3>
-                    <p className="text-white/50 text-sm leading-relaxed">{cap.description}</p>
+                    <h3 className="text-slate-900 font-bold text-lg leading-tight mb-1">{cap.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{cap.description}</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {cap.features.map((f) => (
                     <span
                       key={f}
-                      className="flex items-center gap-1.5 text-xs text-gold/80 bg-gold/8 px-3 py-1 rounded-full"
+                      className="flex items-center gap-1.5 text-xs text-blue-600 bg-blue-50 px-3 py-1 rounded-full"
                     >
                       <CheckCircle2 size={10} />
                       {f}
@@ -86,18 +86,18 @@ export default function AILab() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="mt-14 p-8 rounded-2xl border border-gold/20 bg-gradient-to-r from-gold/5 via-gold/8 to-gold/5 text-center"
+          className="mt-14 p-8 rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 text-center"
         >
-          <Zap className="text-gold mx-auto mb-3" size={28} />
-          <h3 className="text-white font-bold text-xl md:text-2xl mb-3">
+          <Zap className="text-blue-600 mx-auto mb-3" size={28} />
+          <h3 className="text-slate-900 font-bold text-xl md:text-2xl mb-3">
             Ready to Deploy AI in Your Enterprise?
           </h3>
-          <p className="text-white/50 text-sm mb-6 max-w-lg mx-auto">
+          <p className="text-slate-500 text-sm mb-6 max-w-lg mx-auto">
             Our AI Lab team works with you from proof-of-concept to full-scale production deployment.
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gold text-black font-bold text-sm hover:bg-gold-light transition-all shadow-gold"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(0,87,255,0.2)]"
           >
             Start Your AI Journey →
           </a>

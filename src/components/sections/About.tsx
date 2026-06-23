@@ -29,10 +29,10 @@ const VALUES = [
 ];
 
 const JOURNEY = [
-  { year: "2022", label: "Founded", desc: "Born with a vision to democratize AI for enterprises" },
-  { year: "2023", label: "Growth", desc: "Expanded to 13 verticals, 30+ clients onboarded" },
+  { year: "2022", label: "Founded",    desc: "Born with a vision to democratize AI for enterprises" },
+  { year: "2023", label: "Growth",     desc: "Expanded globally, 30+ enterprise clients onboarded" },
   { year: "2024", label: "Innovation", desc: "Launched AI Lab, 100+ automation deployments" },
-  { year: "2025", label: "Global", desc: "3 continents, 500+ projects, 50+ enterprise clients" },
+  { year: "2025", label: "Global",     desc: "3 continents, 500+ projects, 50+ enterprise clients" },
 ];
 
 export default function About() {
@@ -40,7 +40,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" ref={ref} className="section-pad bg-dark-800 scroll-mt-[80px] md:scroll-mt-[100px]">
+    <section id="about" ref={ref} className="section-pad bg-slate-50 scroll-mt-[80px] md:scroll-mt-[100px]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <SectionTitle
           eyebrow="Our Foundation"
@@ -57,24 +57,24 @@ export default function About() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
-              className="group p-6 rounded-2xl border border-gold/10 bg-dark-700/50 hover:border-gold/28 hover:bg-dark-700 transition-all duration-300"
+              className="group p-6 rounded-2xl border border-blue-100 bg-white shadow-sm hover:border-blue-300 hover:shadow-md transition-all duration-300"
             >
-              <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/18 transition-colors">
-                <Icon className="text-gold" size={20} />
+              <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                <Icon className="text-blue-600" size={20} />
               </div>
-              <h3 className="text-white font-bold text-lg mb-3">{title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
+              <h3 className="text-slate-900 font-bold text-lg mb-3">{title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Journey timeline */}
         <div>
-          <p className="text-center text-white/30 text-[11px] tracking-[0.3em] uppercase mb-14">
+          <p className="text-center text-slate-400 text-[11px] tracking-[0.3em] uppercase mb-14">
             Our Journey
           </p>
           <div className="relative">
-            <div className="absolute top-5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent hidden md:block" />
+            <div className="absolute top-5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent hidden md:block" />
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
               {JOURNEY.map(({ year, label, desc }, i) => (
                 <motion.div
@@ -84,12 +84,12 @@ export default function About() {
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.12 }}
                   className="text-center"
                 >
-                  <div className="w-10 h-10 rounded-full bg-gold text-black font-black text-xs flex items-center justify-center mx-auto mb-4 shadow-gold relative z-10 animate-pulse-gold">
+                  <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(0,87,255,0.25)] relative z-10 animate-pulse-gold">
                     {i + 1}
                   </div>
                   <div className="gold-text font-black text-2xl mb-1">{year}</div>
-                  <div className="text-white font-semibold text-sm mb-2">{label}</div>
-                  <p className="text-white/45 text-xs leading-relaxed">{desc}</p>
+                  <div className="text-slate-900 font-semibold text-sm mb-2">{label}</div>
+                  <p className="text-slate-500 text-xs leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
             </div>

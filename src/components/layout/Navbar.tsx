@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
@@ -30,7 +30,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Escape key closes drawer
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setMobileOpen(false);
@@ -39,7 +38,6 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
-  // Lock body scroll when drawer is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -67,13 +65,13 @@ export default function Navbar() {
 
   return (
     <>
-      {/* â”€â”€ Fixed top bar â”€â”€ */}
+      {/* ── Fixed top bar ── */}
       <nav
         className={cn(
           "fixed top-0 left-0 right-0 z-[99999] transition-all duration-300",
           scrolled
-            ? "bg-black/96 backdrop-blur-2xl border-b border-gold/20 shadow-[0_4px_40px_rgba(0,0,0,0.8)]"
-            : "bg-black/90 backdrop-blur-md border-b border-gold/10"
+            ? "bg-white/96 backdrop-blur-2xl border-b border-slate-200 shadow-[0_2px_20px_rgba(0,0,0,0.06)]"
+            : "bg-white/90 backdrop-blur-md border-b border-slate-100"
         )}
         role="navigation"
         aria-label="Main navigation"
@@ -84,16 +82,18 @@ export default function Navbar() {
             href="#hero"
             className="flex items-center no-underline"
             onClick={(e) => { e.preventDefault(); scrollTo("#hero"); }}
-            aria-label="VINOFYX â€” Back to top"
+            aria-label="VINOFYX — Back to top"
           >
-            <Image
-              src="/images/logo.png"
-              alt="VINOFYX PRIVATE LIMITED"
-              width={210}
-              height={82}
-              className="h-[48px] md:h-[58px] w-auto object-contain"
-              priority
-            />
+            <span className="bg-slate-900 rounded-xl px-2 py-1 inline-flex">
+              <Image
+                src="/images/logo.png"
+                alt="VINOFYX PRIVATE LIMITED"
+                width={210}
+                height={82}
+                className="h-[38px] md:h-[46px] w-auto object-contain"
+                priority
+              />
+            </span>
           </a>
 
           {/* Desktop nav */}
@@ -107,10 +107,10 @@ export default function Navbar() {
                   onClick={(e) => handleLink(e, item.href)}
                   aria-current={activeId === id ? "page" : undefined}
                   className={cn(
-                    "px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60",
+                    "px-4 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60",
                     activeId === id
-                      ? "text-gold bg-gold/10"
-                      : "text-white/65 hover:text-white hover:bg-white/5"
+                      ? "text-blue-600 bg-blue-50"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                   )}
                 >
                   {item.label}
@@ -120,7 +120,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={(e) => handleLink(e, "#contact")}
-              className="ml-3 flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-gold text-black hover:bg-[#F5E6A8] transition-all duration-200 shadow-[0_0_20px_rgba(212,175,55,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+              className="ml-3 flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 shadow-[0_0_20px_rgba(0,87,255,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
             >
               Get Started <ArrowRight size={14} aria-hidden />
             </a>
@@ -128,7 +128,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/8 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+            className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
             onClick={() => setMobileOpen(true)}
             aria-label="Open navigation menu"
             aria-expanded={mobileOpen}
@@ -139,7 +139,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* â”€â”€ Full-screen mobile drawer â”€â”€ */}
+      {/* ── Full-screen mobile drawer ── */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -150,7 +150,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[999998] bg-black/70 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[999998] bg-slate-900/50 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileOpen(false)}
               aria-hidden="true"
             />
@@ -164,23 +164,25 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-[999999] w-full max-w-[320px] bg-[#080808] border-l border-gold/15 flex flex-col lg:hidden"
+              className="fixed top-0 right-0 bottom-0 z-[999999] w-full max-w-[320px] bg-white border-l border-slate-200 flex flex-col lg:hidden"
               role="dialog"
               aria-modal="true"
               aria-label="Navigation menu"
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-gold/10 flex-shrink-0">
-                <Image
-                  src="/images/logo.png"
-                  alt="VINOFYX PRIVATE LIMITED"
-                  width={150}
-                  height={59}
-                  className="h-[36px] w-auto object-contain"
-                />
+              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 flex-shrink-0">
+                <span className="bg-slate-900 rounded-xl px-2 py-1 inline-flex">
+                  <Image
+                    src="/images/logo.png"
+                    alt="VINOFYX PRIVATE LIMITED"
+                    width={150}
+                    height={59}
+                    className="h-[30px] w-auto object-contain"
+                  />
+                </span>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-lg text-white/55 hover:text-white hover:bg-white/8 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+                  className="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
                   aria-label="Close navigation menu"
                 >
                   <X size={20} aria-hidden />
@@ -202,15 +204,15 @@ export default function Navbar() {
                       onClick={(e) => handleLink(e, item.href)}
                       aria-current={isActive ? "page" : undefined}
                       className={cn(
-                        "flex items-center justify-between px-4 py-3.5 rounded-xl text-[15px] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60",
+                        "flex items-center justify-between px-4 py-3.5 rounded-xl text-[15px] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60",
                         isActive
-                          ? "text-gold bg-gold/10 border border-gold/20"
-                          : "text-white/70 hover:text-gold hover:bg-gold/5"
+                          ? "text-blue-600 bg-blue-50 border border-blue-200"
+                          : "text-slate-600 hover:text-blue-600 hover:bg-blue-50"
                       )}
                     >
                       {item.label}
                       {isActive && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" aria-hidden />
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0" aria-hidden />
                       )}
                     </motion.a>
                   );
@@ -218,14 +220,14 @@ export default function Navbar() {
               </nav>
 
               {/* Drawer CTA */}
-              <div className="px-4 pb-8 pt-4 border-t border-gold/10 flex-shrink-0">
+              <div className="px-4 pb-8 pt-4 border-t border-slate-100 flex-shrink-0">
                 <motion.a
                   href="#contact"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.32 }}
                   onClick={(e) => handleLink(e, "#contact")}
-                  className="flex items-center justify-center gap-2 w-full px-5 py-4 rounded-xl bg-gold text-black font-bold text-base hover:bg-[#F5E6A8] transition-all duration-200 shadow-[0_0_20px_rgba(212,175,55,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+                  className="flex items-center justify-center gap-2 w-full px-5 py-4 rounded-xl bg-blue-600 text-white font-bold text-base hover:bg-blue-700 transition-all duration-200 shadow-[0_0_20px_rgba(0,87,255,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
                 >
                   Get Started <ArrowRight size={18} aria-hidden />
                 </motion.a>
@@ -237,4 +239,3 @@ export default function Navbar() {
     </>
   );
 }
-
