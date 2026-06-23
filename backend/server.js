@@ -36,8 +36,8 @@ app.use(
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
-// Health check
-app.get("/health", (req, res) => {
+// Health check (both paths for compatibility)
+app.get(["/health", "/api/health"], (req, res) => {
   res.json({ status: "ok", service: "VINOFYX API", version: "1.0.0" });
 });
 
@@ -48,10 +48,12 @@ app.use("/api/v1/contact", contactRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`\n🚀 VINOFYX Backend running on port ${PORT}`);
-  console.log(`   Environment: ${process.env.NODE_ENV || "development"}`);
-  console.log(`   Health: http://localhost:${PORT}/health\n`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 VINOFYX Backend running on port ${PORT}`);
+    console.log(`   Environment: ${process.env.NODE_ENV || "development"}`);
+    console.log(`   Health: http://localhost:${PORT}/api/health\n`);
+  });
+}
 
 module.exports = app;
