@@ -48,9 +48,9 @@ export default function Ecosystem() {
       if (ringRef.current) {
         ringRef.current.setAttribute("transform", `rotate(${rotRef.current} 50 50)`);
       }
-      // Counter-rotate labels to keep them upright
-      textRefs.current.forEach((el) => {
-        if (el) el.setAttribute("transform", `rotate(${-rotRef.current} 0 0)`);
+      // Counter-rotate labels to keep them upright (around each node's own center)
+      textRefs.current.forEach((el, i) => {
+        if (el) el.setAttribute("transform", `rotate(${-rotRef.current} ${STATIC_NODES[i].x} ${STATIC_NODES[i].y})`);
       });
       rafRef.current = requestAnimationFrame(tick);
     };
