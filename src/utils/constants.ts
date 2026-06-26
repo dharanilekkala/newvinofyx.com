@@ -8,7 +8,7 @@ export const NAV_ITEMS = [
 
 export const HERO_STATS = [
   { value: "∞",    label: "Industries" },
-  { value: "50+",  label: "Clients" },
+  { value: "5+",   label: "Clients" },
   { value: "98%",  label: "Satisfaction" },
 ];
 
@@ -112,7 +112,7 @@ export const CASE_STUDIES = [
 export const GLOBAL_STATS = [
   { value: "3",   label: "Continents" },
   { value: "10+", label: "Countries" },
-  { value: "50+", label: "Enterprise Clients" },
+  { value: "5+",  label: "Enterprise Clients" },
 ];
 
 export const CONTACT_INFO = {

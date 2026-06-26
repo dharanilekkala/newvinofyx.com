@@ -32,7 +32,7 @@ const JOURNEY = [
   { year: "2025",  label: "Founded",    desc: "Born with a vision to democratize AI for enterprises" },
   { year: "2025",  label: "Growth",     desc: "Rapid expansion, first enterprise clients onboarded" },
   { year: "2026",  label: "Innovation", desc: "Launched AI Lab, 100+ automation deployments" },
-  { year: "2026+", label: "Global",     desc: "3 continents, 50+ enterprise clients worldwide" },
+  { year: "2026+", label: "Global",     desc: "3 continents, 5+ enterprise clients worldwide" },
 ];
 
 export default function About() {
