@@ -3,7 +3,6 @@ export const NAV_ITEMS = [
   { label: "Company",   href: "#about" },
   { label: "Solutions", href: "#solutions" },
   { label: "AI Lab",    href: "#ai-lab" },
-  { label: "Work",      href: "#cases" },
   { label: "Contact",   href: "#contact" },
 ];
 

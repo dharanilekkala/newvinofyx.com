@@ -6,7 +6,6 @@ import Ecosystem from "@/components/sections/Ecosystem";
 import Solutions from "@/components/sections/Solutions";
 import Industries from "@/components/sections/Industries";
 import AILab from "@/components/sections/AILab";
-import CaseStudies from "@/components/sections/CaseStudies";
 import GlobalPresence from "@/components/sections/GlobalPresence";
 import Contact from "@/components/sections/Contact";
 
@@ -21,7 +20,6 @@ export default function Home() {
         <Solutions />
         <Industries />
         <AILab />
-        <CaseStudies />
         <GlobalPresence />
         <Contact />
       </main>
