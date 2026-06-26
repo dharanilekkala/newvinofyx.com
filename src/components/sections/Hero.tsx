@@ -138,13 +138,26 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 md:mb-16"
         >
-          <a
-            href="#contact"
-            onClick={(e) => { e.preventDefault(); scrollSection("contact"); }}
-            className="btn-glow-pulse w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-blue-600 text-white font-bold text-sm sm:text-base tracking-wide hover:bg-blue-700 active:scale-[0.98] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
-          >
-            Schedule a Consultation <ArrowRight size={18} aria-hidden />
-          </a>
+          <div className="cta-wrapper w-full sm:w-auto">
+            {[
+              { top: "8%",  left: "14%",  animationDelay: "0s",    animationDuration: "3.2s" },
+              { top: "5%",  left: "46%",  animationDelay: "0.65s", animationDuration: "2.9s" },
+              { top: "8%",  right: "14%", animationDelay: "1.3s",  animationDuration: "3.5s" },
+              { bottom: "8%", left: "28%", animationDelay: "0.4s", animationDuration: "3.0s" },
+              { bottom: "8%", right: "20%",animationDelay: "1.85s",animationDuration: "2.7s" },
+              { top: "48%", left: "3%",   animationDelay: "1.0s",  animationDuration: "3.3s" },
+            ].map((style, i) => (
+              <span key={i} className="cta-particle" style={style} aria-hidden />
+            ))}
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); scrollSection("contact"); }}
+              className="cta-premium-btn w-full sm:w-auto"
+            >
+              <span className="cta-shine" aria-hidden />
+              Schedule a Consultation <ArrowRight size={18} aria-hidden />
+            </a>
+          </div>
           <a
             href="#solutions"
             onClick={(e) => { e.preventDefault(); scrollSection("solutions"); }}
