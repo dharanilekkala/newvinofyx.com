@@ -131,7 +131,7 @@ export default function Footer() {
           <p className="text-slate-400 text-xs">
             © {new Date().getFullYear()} VINOFYX PRIVATE LIMITED. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center flex-wrap gap-x-6 gap-y-2 justify-center sm:justify-end">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((link) => (
               <a key={link} href="#" className="text-slate-400 text-xs hover:text-slate-600 transition-colors">
                 {link}

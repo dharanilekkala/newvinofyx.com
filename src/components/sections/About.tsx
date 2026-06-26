@@ -29,10 +29,10 @@ const VALUES = [
 ];
 
 const JOURNEY = [
-  { year: "2022", label: "Founded",    desc: "Born with a vision to democratize AI for enterprises" },
-  { year: "2023", label: "Growth",     desc: "Expanded globally, 30+ enterprise clients onboarded" },
-  { year: "2024", label: "Innovation", desc: "Launched AI Lab, 100+ automation deployments" },
-  { year: "2025", label: "Global",     desc: "3 continents, 500+ projects, 50+ enterprise clients" },
+  { year: "2025",  label: "Founded",    desc: "Born with a vision to democratize AI for enterprises" },
+  { year: "2025",  label: "Growth",     desc: "Rapid expansion, first enterprise clients onboarded" },
+  { year: "2026",  label: "Innovation", desc: "Launched AI Lab, 100+ automation deployments" },
+  { year: "2026+", label: "Global",     desc: "3 continents, 50+ enterprise clients worldwide" },
 ];
 
 export default function About() {
@@ -50,7 +50,7 @@ export default function About() {
         />
 
         {/* Values grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-28">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16 md:mb-28">
           {VALUES.map(({ Icon, title, desc }, i) => (
             <motion.div
               key={title}
@@ -78,7 +78,7 @@ export default function About() {
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
               {JOURNEY.map(({ year, label, desc }, i) => (
                 <motion.div
-                  key={year}
+                  key={label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.12 }}

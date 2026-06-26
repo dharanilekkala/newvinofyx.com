@@ -8,10 +8,9 @@ export const NAV_ITEMS = [
 ];
 
 export const HERO_STATS = [
-  { value: "500+",  label: "Projects" },
-  { value: "∞",     label: "Industries" },
-  { value: "50+",   label: "Clients" },
-  { value: "98%",   label: "Satisfaction" },
+  { value: "∞",    label: "Industries" },
+  { value: "50+",  label: "Clients" },
+  { value: "98%",  label: "Satisfaction" },
 ];
 
 export const SOLUTIONS = [
@@ -112,10 +111,9 @@ export const CASE_STUDIES = [
 ];
 
 export const GLOBAL_STATS = [
-  { value: "3",    label: "Continents" },
-  { value: "10+",  label: "Countries" },
-  { value: "50+",  label: "Enterprise Clients" },
-  { value: "500+", label: "Projects Delivered" },
+  { value: "3",   label: "Continents" },
+  { value: "10+", label: "Countries" },
+  { value: "50+", label: "Enterprise Clients" },
 ];
 
 export const CONTACT_INFO = {

@@ -36,7 +36,7 @@ export default function GlobalPresence() {
           {GLOBAL_STATS.map(({ value, label }, i) => (
             <div
               key={label}
-              className={`text-center flex-1 px-2 ${i < GLOBAL_STATS.length - 1 ? "border-r border-blue-200/60" : ""}`}
+              className={`text-center flex-1 px-2 ${i < GLOBAL_STATS.length - 1 ? "sm:border-r border-blue-200/60" : ""}`}
             >
               <div className="text-2xl md:text-3xl font-black gold-text mb-1">{value}</div>
               <div className="text-slate-400 text-xs tracking-wide">{label}</div>

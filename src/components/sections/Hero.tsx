@@ -141,7 +141,7 @@ export default function Hero() {
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); scrollSection("contact"); }}
-            className="btn-glow w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-blue-600 text-white font-bold text-sm sm:text-base tracking-wide hover:bg-blue-700 active:scale-[0.98] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+            className="btn-glow-pulse w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-blue-600 text-white font-bold text-sm sm:text-base tracking-wide hover:bg-blue-700 active:scale-[0.98] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
           >
             Schedule a Consultation <ArrowRight size={18} aria-hidden />
           </a>
@@ -164,7 +164,7 @@ export default function Hero() {
             {HERO_STATS.map((stat, i) => (
               <div
                 key={stat.label}
-                className={`text-center flex-1 px-2 ${i < HERO_STATS.length - 1 ? "border-r border-blue-200/60" : ""}`}
+                className={`text-center flex-1 px-2 ${i < HERO_STATS.length - 1 ? "sm:border-r border-blue-200/60" : ""}`}
               >
                 <div className="text-2xl sm:text-3xl md:text-4xl font-black gold-text mb-0.5 leading-none">
                   {stat.value}

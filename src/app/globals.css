@@ -141,3 +141,21 @@ body {
 .btn-glow:hover {
   box-shadow: 0 0 56px rgba(0, 87, 255, 0.38), 0 6px 24px rgba(0, 87, 255, 0.25);
 }
+
+/* ── Pulsing glow for primary CTA ── */
+@keyframes ctaGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 40px rgba(0, 87, 255, 0.28), 0 4px 16px rgba(0, 87, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 72px rgba(0, 87, 255, 0.52), 0 8px 32px rgba(0, 87, 255, 0.35), 0 0 16px rgba(96, 165, 250, 0.3);
+  }
+}
+.btn-glow-pulse {
+  box-shadow: 0 0 40px rgba(0, 87, 255, 0.28), 0 4px 16px rgba(0, 87, 255, 0.2);
+  animation: ctaGlowPulse 3s ease-in-out infinite;
+}
+.btn-glow-pulse:hover {
+  animation: none;
+  box-shadow: 0 0 64px rgba(0, 87, 255, 0.48), 0 6px 24px rgba(0, 87, 255, 0.32);
+}
