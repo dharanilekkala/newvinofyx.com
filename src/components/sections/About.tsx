@@ -10,7 +10,13 @@ import {
   Cloud, Briefcase, GraduationCap, BookOpen, Printer,
   Package, Palette, Video, Camera, Zap, Lightbulb,
 } from "lucide-react";
-import SectionTitle from "@/components/common/SectionTitle";
+
+const FEATURES = [
+  { icon: "🤖", title: "Artificial Intelligence", desc: "Smart solutions for modern businesses." },
+  { icon: "💻", title: "Software Engineering",    desc: "Scalable enterprise applications." },
+  { icon: "📈", title: "Digital Growth",          desc: "Marketing powered by technology." },
+  { icon: "🌍", title: "Global Solutions",        desc: "Helping businesses across industries." },
+];
 
 const VALUES = [
   {
@@ -36,35 +42,35 @@ const VALUES = [
 ];
 
 const SERVICES = [
-  { name: "Digital Marketing",             Icon: TrendingUp },
-  { name: "Search Engine Optimization",    Icon: Search },
-  { name: "Social Media Marketing",        Icon: Share2 },
-  { name: "Performance Marketing",         Icon: BarChart2 },
-  { name: "Google Ads",                    Icon: Target },
-  { name: "Meta Ads",                      Icon: MousePointer2 },
-  { name: "Brand Strategy & Identity",     Icon: Gem },
-  { name: "Corporate Branding",            Icon: Building2 },
-  { name: "Website Design & Development",  Icon: Globe },
-  { name: "E-Commerce Development",        Icon: ShoppingCart },
-  { name: "Mobile App Development",        Icon: Smartphone },
-  { name: "Software Development",          Icon: Code2 },
-  { name: "UI/UX Design",                  Icon: Layers },
-  { name: "Artificial Intelligence",       Icon: Brain },
-  { name: "Machine Learning Solutions",    Icon: Cpu },
-  { name: "Business Automation",           Icon: Settings2 },
-  { name: "Data Engineering",              Icon: Database },
-  { name: "Data Analytics",               Icon: BarChart3 },
-  { name: "Cloud Solutions",               Icon: Cloud },
-  { name: "Business Consulting",           Icon: Briefcase },
-  { name: "Corporate Training",            Icon: GraduationCap },
-  { name: "Publishing Services",           Icon: BookOpen },
-  { name: "Printing Solutions",            Icon: Printer },
-  { name: "Institutional Supply",          Icon: Package },
-  { name: "Creative Design",               Icon: Palette },
-  { name: "Video Production & Editing",    Icon: Video },
-  { name: "Photography & Media",           Icon: Camera },
-  { name: "Digital Transformation",        Icon: Zap },
-  { name: "Technology Consulting",         Icon: Lightbulb },
+  { name: "Digital Marketing",            Icon: TrendingUp },
+  { name: "Search Engine Optimization",   Icon: Search },
+  { name: "Social Media Marketing",       Icon: Share2 },
+  { name: "Performance Marketing",        Icon: BarChart2 },
+  { name: "Google Ads",                   Icon: Target },
+  { name: "Meta Ads",                     Icon: MousePointer2 },
+  { name: "Brand Strategy & Identity",    Icon: Gem },
+  { name: "Corporate Branding",           Icon: Building2 },
+  { name: "Website Design & Development", Icon: Globe },
+  { name: "E-Commerce Development",       Icon: ShoppingCart },
+  { name: "Mobile App Development",       Icon: Smartphone },
+  { name: "Software Development",         Icon: Code2 },
+  { name: "UI/UX Design",                 Icon: Layers },
+  { name: "Artificial Intelligence",      Icon: Brain },
+  { name: "Machine Learning Solutions",   Icon: Cpu },
+  { name: "Business Automation",          Icon: Settings2 },
+  { name: "Data Engineering",             Icon: Database },
+  { name: "Data Analytics",              Icon: BarChart3 },
+  { name: "Cloud Solutions",              Icon: Cloud },
+  { name: "Business Consulting",          Icon: Briefcase },
+  { name: "Corporate Training",           Icon: GraduationCap },
+  { name: "Publishing Services",          Icon: BookOpen },
+  { name: "Printing Solutions",           Icon: Printer },
+  { name: "Institutional Supply",         Icon: Package },
+  { name: "Creative Design",              Icon: Palette },
+  { name: "Video Production & Editing",   Icon: Video },
+  { name: "Photography & Media",          Icon: Camera },
+  { name: "Digital Transformation",       Icon: Zap },
+  { name: "Technology Consulting",        Icon: Lightbulb },
 ];
 
 const JOURNEY = [
@@ -74,83 +80,311 @@ const JOURNEY = [
   { year: "2026+", label: "Global",     desc: "3 continents, 5+ enterprise clients worldwide" },
 ];
 
+const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
+  id: i,
+  left:     `${(i * 5.6 + 3)  % 94}%`,
+  top:      `${(i * 10.3 + 8) % 88}%`,
+  delay:    `${(i * 0.65) % 7}s`,
+  duration: `${5 + (i * 0.85) % 6}s`,
+  size:     i % 4 === 0 ? 3 : i % 3 === 0 ? 2.5 : 2,
+  color:    i % 3 === 0 ? "rgba(139,92,246,0.28)" : "rgba(59,130,246,0.24)",
+}));
+
 export default function About() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref        = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView        = useInView(ref,        { once: true, margin: "-80px" });
   const servicesInView = useInView(servicesRef, { once: true, margin: "-60px" });
 
   return (
     <section
       id="about"
       ref={ref}
-      className="section-pad bg-slate-50 scroll-mt-[80px] md:scroll-mt-[100px] overflow-hidden relative"
+      className="relative overflow-hidden bg-white scroll-mt-[80px] md:scroll-mt-[100px] py-20 md:py-28 lg:py-[140px]"
     >
-      {/* Floating background accents */}
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-50/70 rounded-full blur-[180px] pointer-events-none" aria-hidden />
-      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-sky-50/60 rounded-full blur-[160px] pointer-events-none" aria-hidden />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+      {/* ══════════════════════════════════════
+          BACKGROUND SYSTEM
+      ══════════════════════════════════════ */}
 
-        {/* ── Header ── */}
-        <SectionTitle
-          eyebrow="About Vinofyx Private Limited"
-          title="Innovating Businesses Through Technology, Creativity & Digital Excellence"
-          subtitle="VINOFYX PRIVATE LIMITED is a technology-driven company dedicated to empowering businesses with innovative digital solutions across AI, software, marketing, and creative services."
-          inView={inView}
+      {/* Fine grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+        }}
+        aria-hidden
+      />
+
+      {/* Blue radial glow — centred behind heading */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: "-8%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "1000px",
+          height: "640px",
+          background:
+            "radial-gradient(ellipse at 50% 30%, rgba(59,130,246,0.13) 0%, rgba(59,130,246,0.04) 50%, transparent 75%)",
+        }}
+        aria-hidden
+      />
+
+      {/* Purple gradient — right edge */}
+      <div
+        className="absolute top-1/4 -right-56 w-[700px] h-[700px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)",
+        }}
+        aria-hidden
+      />
+
+      {/* Animated floating orbs */}
+      <motion.div
+        animate={{ y: [-18, 18, -18], x: [-8, 8, -8] }}
+        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[12%] left-[6%] w-[300px] h-[300px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(59,130,246,0.10) 0%, transparent 70%)",
+          filter: "blur(48px)",
+        }}
+        aria-hidden
+      />
+      <motion.div
+        animate={{ y: [22, -22, 22], x: [12, -12, 12] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+        className="absolute bottom-[18%] right-[8%] w-[380px] h-[380px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+        aria-hidden
+      />
+      <motion.div
+        animate={{ y: [-12, 24, -12], x: [6, -14, 6] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 7 }}
+        className="absolute top-[52%] left-[2%] w-[240px] h-[240px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)",
+          filter: "blur(36px)",
+        }}
+        aria-hidden
+      />
+
+      {/* Floating ambient particles */}
+      {PARTICLES.map(({ id, left, top, delay, duration, size, color }) => (
+        <span
+          key={id}
+          className="about-particle"
+          style={{
+            left,
+            top,
+            width: `${size}px`,
+            height: `${size}px`,
+            background: color,
+            animationDuration: duration,
+            animationDelay: delay,
+          }}
+          aria-hidden
         />
+      ))}
 
-        {/* ── Company description ── */}
+      {/* Globe wireframe watermark */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none select-none"
+        viewBox="0 0 1400 900"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden
+      >
+        <g opacity="0.038" fill="none" stroke="#0057FF" strokeWidth="0.9">
+          <circle cx="700" cy="450" r="380" />
+          <ellipse cx="700" cy="450" rx="380" ry="120" />
+          <ellipse cx="700" cy="450" rx="380" ry="230" />
+          <ellipse cx="700" cy="450" rx="380" ry="320" />
+          <ellipse cx="700" cy="450" rx="120" ry="380" />
+          <ellipse cx="700" cy="450" rx="230" ry="380" />
+          <line x1="700" y1="70"  x2="700" y2="830" />
+          <line x1="320" y1="450" x2="1080" y2="450" />
+        </g>
+      </svg>
+
+      {/* ══════════════════════════════════════
+          CONTENT
+      ══════════════════════════════════════ */}
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12">
+
+        {/* ── Badge ── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-3xl mx-auto mb-20 text-center"
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-10"
         >
-          <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-            Our mission is to help startups, enterprises, educational institutions, and organizations accelerate their growth through cutting-edge technology, strategic marketing, and creative digital experiences. We deliver scalable, secure, and future-ready solutions to clients across India and international markets while maintaining the highest standards of quality, innovation, and customer satisfaction.
-          </p>
+          <span className="about-badge-border inline-flex items-center px-5 py-2.5 rounded-full bg-white text-slate-600 text-[11px] font-bold tracking-[0.28em] uppercase shadow-sm">
+            About Vinofyx Private Limited
+          </span>
         </motion.div>
 
-        {/* ── Brand Identity Card ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
+        {/* ── Heading ── */}
+        <motion.h2
+          initial={{ opacity: 0, y: 28 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.65, delay: 0.35 }}
-          className="max-w-[1000px] mx-auto mb-20"
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="font-serif text-center font-extrabold text-slate-900 leading-[1.05] mb-7 mx-auto max-w-[900px]"
+          style={{ fontSize: "clamp(34px, 5.2vw, 68px)" }}
         >
-          <div className="group bg-white rounded-[20px] border border-blue-100/80 shadow-[0_4px_40px_rgba(0,87,255,0.07)] hover:shadow-[0_12px_60px_rgba(0,87,255,0.14)] hover:-translate-y-1 transition-all duration-500 p-10 sm:p-14 text-center">
+          Innovating Businesses Through{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-500 to-blue-600">
+            Technology
+          </span>
+          {", "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-500 to-blue-600">
+            Creativity
+          </span>
+          {" & "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-500 to-blue-600">
+            Digital Excellence
+          </span>
+        </motion.h2>
 
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-blue text-blue-600 text-[11px] font-semibold tracking-[0.28em] uppercase mb-7 block">
-              Our Brand Identity
-            </span>
+        {/* ── Subtitle ── */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.65, delay: 0.2 }}
+          className="text-center text-slate-500 mx-auto max-w-[760px] mb-16 leading-[1.8]"
+          style={{ fontSize: "clamp(16px, 1.8vw, 21px)" }}
+        >
+          VINOFYX PRIVATE LIMITED is a technology-driven company dedicated to empowering businesses
+          with innovative digital solutions across AI, software, marketing, and creative services.
+        </motion.p>
 
-            <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4">
-              The Meaning Behind{" "}
-              <span className="gold-shimmer">VINOFYX</span>
-            </h3>
+        {/* ── Feature cards — 4 columns ── */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+          {FEATURES.map(({ icon, title, desc }, i) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
+              className="group rounded-2xl border border-blue-100/80 bg-white/90 backdrop-blur-sm p-6 hover:border-blue-200 hover:shadow-[0_16px_48px_rgba(0,87,255,0.11)] hover:-translate-y-2 transition-all duration-300 shadow-[0_2px_20px_rgba(15,23,42,0.05)] cursor-default"
+            >
+              <span className="text-3xl mb-4 block leading-none">{icon}</span>
+              <h3 className="text-slate-900 font-bold text-sm sm:text-base mb-1.5 leading-snug">{title}</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">{desc}</p>
+            </motion.div>
+          ))}
+        </div>
 
-            <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-              Our name reflects the values that define our company and the solutions we deliver to businesses worldwide.
+        {/* ── Company glassmorphism card ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 36 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.75, delay: 0.42 }}
+          className="mb-20 mx-auto max-w-[1000px]"
+        >
+          <div
+            className="rounded-[28px] px-8 py-12 sm:px-14 sm:py-14"
+            style={{
+              background: "rgba(255,255,255,0.82)",
+              backdropFilter: "blur(28px)",
+              WebkitBackdropFilter: "blur(28px)",
+              border: "1px solid rgba(59,130,246,0.11)",
+              boxShadow: "0 30px 80px rgba(15,23,42,0.08), 0 0 80px rgba(59,130,246,0.06)",
+            }}
+          >
+            {/* Company intro */}
+            <p className="text-slate-500 text-base sm:text-lg leading-[1.85] mb-12 text-center max-w-2xl mx-auto">
+              Our mission is to help startups, enterprises, educational institutions, and
+              organizations accelerate their growth through cutting-edge technology, strategic
+              marketing, and creative digital experiences. We deliver scalable, secure, and
+              future-ready solutions to clients across India and international markets while
+              maintaining the highest standards of quality, innovation, and customer satisfaction.
             </p>
 
-            <div className="w-20 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent mx-auto mb-8" />
+            {/* Gradient divider */}
+            <div className="w-24 h-px mx-auto mb-12 rounded-full"
+              style={{ background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.35), transparent)" }}
+            />
 
-            <div className="glass-blue rounded-2xl px-6 py-5 mb-8 border border-blue-100 max-w-3xl mx-auto">
-              <p className="text-[11px] text-blue-400 font-semibold tracking-[0.28em] uppercase mb-2">
-                Full Form
-              </p>
-              <p className="text-blue-700 font-semibold text-lg sm:text-xl leading-relaxed">
-                Visionary Innovation Network for Optimized Future, Yield &amp; Excellence
-              </p>
+            {/* Brand Identity block */}
+            <div
+              className="rounded-[20px] p-8 sm:p-10 relative overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, rgba(239,246,255,0.97) 0%, rgba(224,242,254,0.95) 60%, rgba(245,243,255,0.95) 100%)",
+                border: "1px solid rgba(59,130,246,0.14)",
+                boxShadow: "0 8px 48px rgba(59,130,246,0.08), inset 0 0 0 1px rgba(255,255,255,0.85)",
+              }}
+            >
+              {/* Animated left accent line */}
+              <div
+                className="absolute left-0 top-8 bottom-8 w-[3px] rounded-r-full"
+                style={{
+                  background: "linear-gradient(180deg, #3B82F6 0%, #8B5CF6 50%, #06B6D4 100%)",
+                  boxShadow: "0 0 12px rgba(59,130,246,0.45)",
+                }}
+              />
+
+              {/* Soft ambient glow */}
+              <div
+                className="absolute -top-16 -right-16 w-48 h-48 rounded-full pointer-events-none"
+                style={{
+                  background: "radial-gradient(circle, rgba(59,130,246,0.10) 0%, transparent 70%)",
+                  filter: "blur(30px)",
+                }}
+                aria-hidden
+              />
+
+              <div className="pl-5 sm:pl-7">
+                <p className="text-[10px] font-black tracking-[0.32em] uppercase text-blue-400 mb-4">
+                  Our Brand Identity
+                </p>
+
+                <h3
+                  className="font-serif font-bold text-slate-900 mb-2 leading-tight"
+                  style={{ fontSize: "clamp(20px, 2.6vw, 30px)" }}
+                >
+                  The Meaning Behind{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">
+                    VINOFYX
+                  </span>
+                </h3>
+
+                <p className="text-slate-500 text-sm leading-relaxed mb-7 max-w-xl">
+                  Our name reflects the values that define our company and the solutions we deliver
+                  to businesses worldwide.
+                </p>
+
+                {/* Full form panel */}
+                <div
+                  className="rounded-2xl px-5 py-4 mb-7 inline-block w-full"
+                  style={{
+                    background: "rgba(255,255,255,0.90)",
+                    border: "1px solid rgba(59,130,246,0.13)",
+                    boxShadow: "0 4px 24px rgba(59,130,246,0.07)",
+                  }}
+                >
+                  <p className="text-[10px] font-black tracking-[0.28em] uppercase text-blue-400 mb-2">
+                    Full Form
+                  </p>
+                  <p className="text-blue-700 font-semibold text-base sm:text-lg leading-relaxed">
+                    Visionary Innovation Network for Optimized Future, Yield &amp; Excellence
+                  </p>
+                </div>
+
+                <p className="text-slate-500 text-sm leading-relaxed max-w-2xl">
+                  VINOFYX represents our commitment to visionary thinking, continuous innovation,
+                  strategic networking, optimized digital transformation, measurable business growth,
+                  and operational excellence. Every project we deliver is built around these core
+                  principles, enabling organizations to grow confidently in the digital era.
+                </p>
+              </div>
             </div>
-
-            <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              VINOFYX represents our commitment to visionary thinking, continuous innovation, strategic
-              networking, optimized digital transformation, measurable business growth, and operational
-              excellence. Every project we deliver is built around these core principles, enabling
-              organizations to grow confidently in the digital era.
-            </p>
           </div>
         </motion.div>
 
@@ -181,7 +415,9 @@ export default function About() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <p className="text-[11px] tracking-[0.3em] uppercase text-blue-500 font-semibold mb-3">What We Do</p>
+            <p className="text-[11px] tracking-[0.3em] uppercase text-blue-500 font-semibold mb-3">
+              What We Do
+            </p>
             <h2 className="text-slate-900 font-bold text-2xl sm:text-3xl md:text-4xl leading-tight">
               Our Services &amp; Capabilities
             </h2>
@@ -255,7 +491,8 @@ export default function About() {
               Transform Your Business with Vinofyx
             </h3>
             <p className="text-blue-100 text-sm sm:text-base mb-8 max-w-xl mx-auto leading-relaxed">
-              From strategy to execution — our team of experts is ready to build the perfect digital solution tailored to your business goals.
+              From strategy to execution — our team of experts is ready to build the perfect digital
+              solution tailored to your business goals.
             </p>
             <a
               href="#contact"
