@@ -112,6 +112,48 @@ export default function About() {
           </p>
         </motion.div>
 
+        {/* ── Brand Identity Card ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.65, delay: 0.35 }}
+          className="max-w-[1000px] mx-auto mb-20"
+        >
+          <div className="group bg-white rounded-[20px] border border-blue-100/80 shadow-[0_4px_40px_rgba(0,87,255,0.07)] hover:shadow-[0_12px_60px_rgba(0,87,255,0.14)] hover:-translate-y-1 transition-all duration-500 p-10 sm:p-14 text-center">
+
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-blue text-blue-600 text-[11px] font-semibold tracking-[0.28em] uppercase mb-7 block">
+              Our Brand Identity
+            </span>
+
+            <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4">
+              The Meaning Behind{" "}
+              <span className="gold-shimmer">VINOFYX</span>
+            </h3>
+
+            <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+              Our name reflects the values that define our company and the solutions we deliver to businesses worldwide.
+            </p>
+
+            <div className="w-20 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent mx-auto mb-8" />
+
+            <div className="glass-blue rounded-2xl px-6 py-5 mb-8 border border-blue-100 max-w-3xl mx-auto">
+              <p className="text-[11px] text-blue-400 font-semibold tracking-[0.28em] uppercase mb-2">
+                Full Form
+              </p>
+              <p className="text-blue-700 font-semibold text-lg sm:text-xl leading-relaxed">
+                Visionary Innovation Network for Optimized Future, Yield &amp; Excellence
+              </p>
+            </div>
+
+            <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+              VINOFYX represents our commitment to visionary thinking, continuous innovation, strategic
+              networking, optimized digital transformation, measurable business growth, and operational
+              excellence. Every project we deliver is built around these core principles, enabling
+              organizations to grow confidently in the digital era.
+            </p>
+          </div>
+        </motion.div>
+
         {/* ── Values grid ── */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
           {VALUES.map(({ Icon, title, desc }, i) => (
