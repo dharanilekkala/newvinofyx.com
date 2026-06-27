@@ -259,8 +259,7 @@ export default function Ecosystem() {
                 <circle cx="50" cy="50" r="8" fill="url(#ecoCenterGrad)" filter="url(#ecoCenterGlow)" />
 
                 {/* Center text */}
-                <text x="50" y="48.6" textAnchor="middle" fill="white" fontSize="2.6" fontWeight="800" fontFamily="Inter, sans-serif" letterSpacing="0.1">VINO</text>
-                <text x="50" y="52.5" textAnchor="middle" fill="white" fontSize="2.6" fontWeight="800" fontFamily="Inter, sans-serif" letterSpacing="0.1">FYX</text>
+                <text x="50" y="51.2" textAnchor="middle" fill="white" fontSize="2.4" fontWeight="800" fontFamily="Inter, sans-serif" letterSpacing="0.15">VINOFYX</text>
               </svg>
             </motion.div>
           </motion.div>
