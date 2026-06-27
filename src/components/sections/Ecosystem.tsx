@@ -289,17 +289,6 @@ export default function Ecosystem() {
                         : "border-blue-100 bg-white hover:border-blue-300 hover:shadow-[0_4px_20px_rgba(0,87,255,0.08)] hover:-translate-y-px"
                     }`}
                   >
-                    {/* Number badge */}
-                    <span
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-[10px] font-black transition-all duration-200 ${
-                        isActive
-                          ? "bg-blue-600 text-white shadow-[0_0_14px_rgba(0,87,255,0.38)]"
-                          : "bg-blue-50 text-blue-500 group-hover:bg-blue-100"
-                      }`}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-
                     {/* Icon */}
                     <div
                       className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
