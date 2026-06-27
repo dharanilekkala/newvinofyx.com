@@ -74,41 +74,6 @@ export const AI_CAPABILITIES = [
   },
 ];
 
-export const CASE_STUDIES = [
-  {
-    client: "Leading Healthcare Group",
-    industry: "Healthcare",
-    title: "AI-Powered Patient Management System",
-    description: "Deployed an intelligent patient scheduling and triage system that dramatically reduced wait times and improved care delivery quality.",
-    results: ["60% reduction in wait times", "40% increase in patient throughput", "98% triage accuracy"],
-    tags: ["AI", "Healthcare", "Automation"],
-  },
-  {
-    client: "Regional Banking Institution",
-    industry: "FinTech",
-    title: "Real-Time Fraud Detection Engine",
-    description: "Built an ML fraud detection system screening 2M+ daily transactions with sub-100ms latency, protecting assets at enterprise scale.",
-    results: ["99.2% fraud detection accuracy", "80% reduction in false positives", "$2.4M annual savings"],
-    tags: ["Machine Learning", "FinTech", "Real-time"],
-  },
-  {
-    client: "State University Consortium",
-    industry: "EdTech",
-    title: "Smart Learning Management Platform",
-    description: "Developed a comprehensive AI-powered LMS serving 50,000+ students across multiple campuses with personalized learning paths.",
-    results: ["50,000+ active learners", "35% improvement in completion rates", "95% student satisfaction"],
-    tags: ["EdTech", "AI", "Scale"],
-  },
-  {
-    client: "E-Commerce Market Leader",
-    industry: "Retail",
-    title: "ML Personalization Engine",
-    description: "Implemented an ML-powered recommendation system delivering hyper-personalized experiences that directly improved revenue metrics.",
-    results: ["45% revenue increase per user", "3× conversion rate improvement", "2M+ products catalogued"],
-    tags: ["E-Commerce", "ML", "Personalization"],
-  },
-];
-
 export const GLOBAL_STATS = [
   { value: "3",   label: "Continents" },
   { value: "10+", label: "Countries" },

@@ -49,7 +49,7 @@ const BENTO = [
 const JOURNEY = [
   { year: "2025",  label: "Founded",    desc: "Born with a vision to democratize AI for enterprises. Assembled a world-class team of engineers, designers, and strategists." },
   { year: "2025",  label: "Growth",     desc: "Rapid expansion phase — first enterprise clients onboarded. Delivered projects across software, AI, and digital marketing." },
-  { year: "2026",  label: "Innovation", desc: "Launched our proprietary AI Lab, deploying 100+ automation workflows across 3 continents." },
+  { year: "2026",  label: "Innovation", desc: "Launched our proprietary AI Lab with enterprise automation workflows and AI deployments." },
   { year: "2026+", label: "Global",     desc: "Scaling operations across Asia Pacific, Europe and the Americas with 5+ enterprise clients worldwide." },
 ];
 

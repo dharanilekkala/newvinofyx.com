@@ -8,13 +8,6 @@ import { AI_CAPABILITIES } from "@/utils/constants";
 
 const CAP_ICONS = [Bot, MessageSquare, Eye, BarChart3];
 
-const LAB_STATS = [
-  { value: "100+",    label: "AI Models Deployed" },
-  { value: "10M+",    label: "Daily Inferences" },
-  { value: "< 100ms", label: "Avg Response Time" },
-  { value: "99.9%",   label: "Uptime SLA" },
-];
-
 export default function AILab() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -28,24 +21,6 @@ export default function AILab() {
           subtitle="Our dedicated AI research and engineering lab designs, builds, and deploys cutting-edge AI systems that solve real business problems at scale."
           inView={inView}
         />
-
-        {/* Lab Stats — glassmorphic */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass-blue rounded-2xl px-4 sm:px-8 py-7 flex flex-wrap sm:flex-nowrap items-center justify-around gap-4 mb-20"
-        >
-          {LAB_STATS.map(({ value, label }, i) => (
-            <div
-              key={label}
-              className={`text-center flex-1 px-2 ${i < LAB_STATS.length - 1 ? "sm:border-r border-blue-200/60" : ""}`}
-            >
-              <div className="text-2xl md:text-3xl font-black gold-text mb-1">{value}</div>
-              <div className="text-slate-400 text-xs tracking-wide">{label}</div>
-            </div>
-          ))}
-        </motion.div>
 
         {/* Capabilities grid */}
         <div className="grid md:grid-cols-2 gap-6">
