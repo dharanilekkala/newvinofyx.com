@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
+import BrandMeaning from "@/components/sections/BrandMeaning";
 import About from "@/components/sections/About";
 import Ecosystem from "@/components/sections/Ecosystem";
 import Solutions from "@/components/sections/Solutions";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <BrandMeaning />
         <About />
         <Ecosystem />
         <Solutions />
