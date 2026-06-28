@@ -254,7 +254,7 @@ export default function About() {
                 className="font-serif font-bold text-slate-900 leading-tight mb-8"
                 style={{ fontSize: "clamp(30px, 3.8vw, 52px)" }}
               >
-                Building Tomorrow's{" "}
+                Building Tomorrow&apos;s{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">
                   Digital Infrastructure
                 </span>

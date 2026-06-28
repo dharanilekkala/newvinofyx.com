@@ -73,6 +73,41 @@ export const AI_CAPABILITIES = [
   },
 ];
 
+export const CASE_STUDIES = [
+  {
+    industry: "Healthcare",
+    title: "AI Diagnostics Platform",
+    client: "Multi-Specialty Hospital Group",
+    description: "Built an AI-powered diagnostic assistant that analyzes patient data and medical imaging to support clinical decision-making across 12 hospital branches.",
+    results: ["40% reduction in diagnostic turnaround time", "92% accuracy rate on imaging analysis", "Deployed across 12 facilities in 6 months"],
+    tags: ["AI", "Healthcare", "Machine Learning"],
+  },
+  {
+    industry: "FinTech",
+    title: "Fraud Detection Engine",
+    client: "Regional Banking Institution",
+    description: "Developed a real-time ML-based fraud detection system that monitors transactions across millions of accounts and flags anomalies within milliseconds.",
+    results: ["78% reduction in fraudulent transactions", "Processing 2M+ transactions daily", "99.97% uptime since deployment"],
+    tags: ["FinTech", "ML", "Real-time"],
+  },
+  {
+    industry: "EdTech",
+    title: "Adaptive Learning Platform",
+    client: "National University Network",
+    description: "Designed and deployed an AI-driven e-learning platform with personalized learning paths for 50,000+ students across 8 universities.",
+    results: ["35% improvement in student outcomes", "50,000+ active learners onboarded", "Reduced course completion time by 28%"],
+    tags: ["EdTech", "AI", "Personalization"],
+  },
+  {
+    industry: "E-Commerce",
+    title: "Enterprise Commerce Scaling",
+    client: "D2C Retail Brand",
+    description: "Re-architected a D2C e-commerce platform to handle 10x traffic spikes during peak sales, integrated AI-driven product recommendations and automated inventory management.",
+    results: ["10x traffic capacity increase", "23% uplift in average order value", "99.9% uptime during peak sales"],
+    tags: ["E-Commerce", "AI", "Scale"],
+  },
+];
+
 export const GLOBAL_STATS = [
   { value: "3",   label: "Continents" },
   { value: "10+", label: "Countries" },

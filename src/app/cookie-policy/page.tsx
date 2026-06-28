@@ -23,7 +23,7 @@ export default function CookiePolicy() {
         <div className="prose prose-slate max-w-none">
 
           <p className="text-slate-600 leading-relaxed mb-8">
-            This Cookie Policy explains how <strong>Vinofyx Private Limited</strong> ("Vinofyx", "we", "our", or "us") uses cookies and similar technologies when you visit{" "}
+            This Cookie Policy explains how <strong>Vinofyx Private Limited</strong> (&quot;Vinofyx&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) uses cookies and similar technologies when you visit{" "}
             <a href="https://www.vinofyx.com" className="text-blue-600 hover:underline">www.vinofyx.com</a>. Vinofyx provides AI-powered digital marketing, SEO, website development, branding, and business growth solutions. By continuing to use our website, you agree to our use of cookies as described in this Cookie Policy.
           </p>
 

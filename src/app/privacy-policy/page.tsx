@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
         <div className="prose prose-slate max-w-none">
 
           <p className="text-slate-600 leading-relaxed mb-8">
-            Welcome to <strong>Vinofyx Private Limited</strong> ("Vinofyx", "we", "our", or "us"). Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit{" "}
+            Welcome to <strong>Vinofyx Private Limited</strong> (&quot;Vinofyx&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit{" "}
             <a href="https://www.vinofyx.com" className="text-blue-600 hover:underline">www.vinofyx.com</a>, use our services, or interact with us. By using our website, you agree to the collection and use of information in accordance with this Privacy Policy.
           </p>
 

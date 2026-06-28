@@ -23,7 +23,7 @@ export default function TermsOfService() {
         <div className="prose prose-slate max-w-none">
 
           <p className="text-slate-600 leading-relaxed mb-8">
-            Welcome to <strong>Vinofyx Private Limited</strong> ("Vinofyx", "Company", "we", "our", or "us"). These Terms of Service ("Terms") govern your access to and use of Vinofyx's website at{" "}
+            Welcome to <strong>Vinofyx Private Limited</strong> (&quot;Vinofyx&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). These Terms of Service (&quot;Terms&quot;) govern your access to and use of Vinofyx&apos;s website at{" "}
             <a href="https://vinofyx.com" className="text-blue-600 hover:underline">https://vinofyx.com</a> and any services provided by Vinofyx. By accessing or using our website or services, you agree to be legally bound by these Terms. If you do not agree, please do not use our website or services.
           </p>
 
@@ -132,7 +132,7 @@ export default function TermsOfService() {
           </Section>
 
           <Section title="13. Disclaimer of Warranties">
-            <p className="text-slate-600 mb-3">Our website and services are provided on an "as is" and "as available" basis. While we use reasonable skill and care in providing our services, we do not guarantee:</p>
+            <p className="text-slate-600 mb-3">Our website and services are provided on an &quot;as is&quot; and &quot;as available&quot; basis. While we use reasonable skill and care in providing our services, we do not guarantee:</p>
             <List items={[
               "Specific search engine rankings.",
               "A particular increase in revenue, leads, or sales.",
@@ -145,7 +145,7 @@ export default function TermsOfService() {
 
           <Section title="14. Limitation of Liability">
             <p className="text-slate-600">To the fullest extent permitted by law, Vinofyx shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, business interruption, loss of data, or loss of goodwill arising from the use of our website or services.</p>
-            <p className="text-slate-600 mt-3">Where liability cannot be excluded, Vinofyx's aggregate liability shall not exceed the total fees paid by the client for the specific services giving rise to the claim.</p>
+            <p className="text-slate-600 mt-3">Where liability cannot be excluded, Vinofyx&apos;s aggregate liability shall not exceed the total fees paid by the client for the specific services giving rise to the claim.</p>
           </Section>
 
           <Section title="15. Indemnification">
