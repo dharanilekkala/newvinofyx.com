@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "VINOFYX PRIVATE LIMITED | Global AI & Digital Transformation",
   description:
-    "VINOFYX PRIVATE LIMITED — Global technology company delivering AI, software engineering, data analytics, digital marketing, and enterprise transformation across every industry.",
+    "VINOFYX PRIVATE LIMITED — Global technology company delivering AI, software engineering, data analytics, and enterprise transformation across every industry.",
   keywords: [
     "AI solutions",
     "digital transformation",

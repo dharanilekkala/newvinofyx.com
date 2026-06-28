@@ -132,9 +132,13 @@ export default function Footer() {
             © {new Date().getFullYear()} VINOFYX PRIVATE LIMITED. All rights reserved.
           </p>
           <div className="flex items-center flex-wrap gap-x-6 gap-y-2 justify-center sm:justify-end">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((link) => (
-              <a key={link} href="#" className="text-slate-400 text-xs hover:text-slate-600 transition-colors">
-                {link}
+            {[
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms of Service", href: "/terms-of-service" },
+              { label: "Cookie Policy", href: "/cookie-policy" },
+            ].map(({ label, href }) => (
+              <a key={label} href={href} className="text-slate-400 text-xs hover:text-slate-600 transition-colors">
+                {label}
               </a>
             ))}
           </div>

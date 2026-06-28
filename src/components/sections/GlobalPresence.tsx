@@ -8,7 +8,7 @@ import { GLOBAL_STATS } from "@/utils/constants";
 
 const REGIONS = [
   { name: "Asia Pacific", countries: ["India", "Singapore", "UAE"], active: true },
-  { name: "Europe",       countries: ["United Kingdom", "Germany", "Netherlands"], active: true },
+  { name: "Europe",       countries: ["Germany", "Netherlands"], active: true },
   { name: "Americas",     countries: ["United States", "Canada"], active: true },
 ];
 

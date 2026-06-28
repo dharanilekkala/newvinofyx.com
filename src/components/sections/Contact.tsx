@@ -8,7 +8,7 @@ import { CONTACT_INFO } from "@/utils/constants";
 
 const SERVICES = [
   "AI Solutions", "Software Development", "Data Engineering",
-  "Digital Marketing", "Business Consulting", "Institutional Solutions",
+  "Business Consulting", "Institutional Solutions",
   "Mobile Development", "Cloud Infrastructure", "Cybersecurity",
   "E-Commerce", "ERP & CRM", "EdTech", "FinTech", "Other",
 ];
@@ -29,11 +29,20 @@ export default function Contact() {
   const set = (k: keyof FormState, v: string) =>
     setForm((f) => ({ ...f, [k]: v }));
 
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbxG0eogiLaWzIXkVSlb89BSExIECULctkDvQtjNGEEdNljY-XG0SdSxlvl1IKPOWm1xJg/exec";
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
     try {
-      await new Promise((r) => setTimeout(r, 1200));
+      const url = new URL(SHEET_URL);
+      url.searchParams.set("fullName", form.name);
+      url.searchParams.set("email",    form.email);
+      url.searchParams.set("company",  form.company);
+      url.searchParams.set("phone",    form.phone);
+      url.searchParams.set("service",  form.service);
+      url.searchParams.set("message",  form.message);
+      await fetch(url.toString(), { method: "GET", mode: "no-cors" });
       setStatus("success");
       setForm({ name: "", email: "", company: "", phone: "", service: "", message: "" });
     } catch {

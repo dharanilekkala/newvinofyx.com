@@ -16,7 +16,6 @@ export const SOLUTIONS = [
   { id: "ai",            title: "AI Solutions",            description: "Custom AI agents, intelligent automation, ML models, and AI-powered business tools that transform operations.",                            icon: "Brain" },
   { id: "software",      title: "Software Development",    description: "Enterprise applications, SaaS platforms, APIs, and full-stack solutions built for scale and reliability.",                                  icon: "Code2" },
   { id: "data",          title: "Data Engineering",        description: "Data pipelines, warehousing, analytics platforms, and business intelligence for data-driven decisions.",                                    icon: "Database" },
-  { id: "marketing",     title: "Digital Marketing",       description: "Performance marketing, SEO, content strategy, paid media, and growth engineering that delivers ROI.",                                       icon: "TrendingUp" },
   { id: "consulting",    title: "Business Consulting",     description: "Strategic advisory, process optimization, digital transformation roadmaps, and execution support.",                                          icon: "Briefcase" },
   { id: "institutional", title: "Institutional Solutions", description: "Tailored solutions for universities, government bodies, hospitals, and public sector organizations.",                                       icon: "Building2" },
   { id: "mobile",        title: "Mobile Development",      description: "Cross-platform and native iOS/Android applications with enterprise-grade performance and UX.",                                               icon: "Smartphone" },
@@ -92,13 +91,12 @@ export const FOOTER_LINKS = {
     { label: "About Us",   href: "#about" },
     { label: "Leadership", href: "#about" },
     { label: "Careers",    href: "#contact" },
-    { label: "Press",      href: "#contact" },
   ],
   solutions: [
     { label: "AI Solutions",     href: "#solutions" },
     { label: "Software Dev",     href: "#solutions" },
     { label: "Data Engineering", href: "#solutions" },
-    { label: "Digital Marketing",href: "#solutions" },
+    { label: "Business Consulting",href: "#solutions" },
   ],
   industries: [
     { label: "Healthcare",  href: "#solutions" },

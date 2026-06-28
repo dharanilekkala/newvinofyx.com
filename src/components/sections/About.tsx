@@ -38,7 +38,7 @@ const BENTO = [
   { Icon: Brain,        name: "Artificial Intelligence", desc: "ML, NLP, Automation & AI Strategy",  wide: true,  tall: true  },
   { Icon: Code2,        name: "Software Development",    desc: "Web, API & Enterprise Apps",          wide: false, tall: false },
   { Icon: Smartphone,   name: "Mobile Apps",             desc: "iOS & Android Development",           wide: false, tall: false },
-  { Icon: TrendingUp,   name: "Digital Marketing",       desc: "SEO, PPC, Social & Content",          wide: true,  tall: false },
+  { Icon: BarChart3,    name: "Analytics & Insights",    desc: "Business Intelligence & Insights",     wide: true,  tall: false },
   { Icon: ShoppingCart, name: "E-Commerce",              desc: "End-to-End Online Stores",            wide: false, tall: false },
   { Icon: Layers,       name: "UI/UX Design",            desc: "Intuitive Digital Experiences",       wide: false, tall: false },
   { Icon: BarChart3,    name: "Data Analytics",          desc: "Business Intelligence & Insights",    wide: true,  tall: false },
@@ -48,7 +48,7 @@ const BENTO = [
 
 const JOURNEY = [
   { year: "2025",  label: "Founded",    desc: "Born with a vision to democratize AI for enterprises. Assembled a world-class team of engineers, designers, and strategists." },
-  { year: "2025",  label: "Growth",     desc: "Rapid expansion phase — first enterprise clients onboarded. Delivered projects across software, AI, and digital marketing." },
+  { year: "2025",  label: "Growth",     desc: "Rapid expansion phase — first enterprise clients onboarded. Delivered projects across software, AI, and data engineering." },
   { year: "2026",  label: "Innovation", desc: "Launched our proprietary AI Lab with enterprise automation workflows and AI deployments." },
   { year: "2026+", label: "Global",     desc: "Scaling operations across Asia Pacific, Europe and the Americas with 5+ enterprise clients worldwide." },
 ];
